@@ -19,7 +19,8 @@ public class BooksActivity extends AppCompatActivity {
     private CardView cardHBRArticle, cardForbesArticle, cardMediumArticle, cardTEDTalk;
     private FrameLayout chatButton;
     private LinearLayout navHome, navFiles, navBooks, navProfile;
-    
+
+    //Pranav is Real
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
