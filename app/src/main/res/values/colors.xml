@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Modern App Color Palette -->
+    <color name="primary">#6366F1</color>
+    <color name="primary_dark">#4F46E5</color>
+    <color name="primary_light">#8B5CF6</color>
+    <color name="secondary">#10B981</color>
+    <color name="accent">#F59E0B</color>
+    
+    <!-- Background Colors -->
+    <color name="background">#F5F7FA</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="card_background">#FFFFFF</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#1E293B</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="text_hint">#94A3B8</color>
+    <color name="text_white">#FFFFFF</color>
+    
+    <!-- Status Colors -->
+    <color name="success">#10B981</color>
+    <color name="warning">#F59E0B</color>
+    <color name="error">#EF4444</color>
+    <color name="info">#3B82F6</color>
+    
+    <!-- Gradient Colors -->
+    <color name="gradient_start">#6366F1</color>
+    <color name="gradient_end">#8B5CF6</color>
+    
+    <!-- Legacy Support -->
+    <color name="purple_gradient_start">#6366F1</color>
+    <color name="purple_gradient_end">#8B5CF6</color>
+    <color name="blue_primary">#3B82F6</color>
+    <color name="blue_light">#DBEAFE</color>
+    <color name="light_blue_bg">#F8FAFC</color>
+    <color name="purple_card">#6366F1</color>
+    <color name="white">#FFFFFF</color>
+    <color name="text_gray">#6B7280</color>
+    <color name="text_dark">#1F2937</color>
+    <color name="black">#000000</color>
+    <color name="border_blue">#3B82F6</color>
+    <color name="light_green_bg">#ECFDF5</color>
+    
+    <!-- Elevation & Shadows -->
+    <color name="shadow_light">#1A000000</color>
+    <color name="shadow_medium">#33000000</color>
+    <color name="divider">#E5E7EB</color>
+</resources>

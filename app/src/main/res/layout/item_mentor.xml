@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <!-- Text Content -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginEnd="12dp">
+
+            <TextView
+                android:id="@+id/mentorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="John Clark"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/mentorDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="John is a senior software engineer with over 10 years of experience specializing in AI and machine learning."
+                android:textSize="13sp"
+                android:textColor="@color/text_gray"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/mentorAvailability"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Available on weekdays from 10 AM to 4 PM"
+                android:textSize="12sp"
+                android:textColor="@color/text_gray"
+                android:layout_marginBottom="12dp" />
+
+            <Button
+                android:id="@+id/btnViewProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="View profile"
+                android:textColor="@color/purple_card"
+                android:textSize="12sp"
+                android:background="@drawable/bg_button_outline"
+                android:paddingHorizontal="20dp" />
+
+        </LinearLayout>
+
+        <!-- Profile Image -->
+        <ImageView
+            android:id="@+id/mentorImage"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_mentor_profile" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

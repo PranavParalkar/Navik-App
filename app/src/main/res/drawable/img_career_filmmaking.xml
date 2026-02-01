@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background gradient -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#FF6B9D"
+                android:endColor="#C471ED"
+                android:angle="135" />
+        </shape>
+    </item>
+    
+    <!-- Overlay pattern -->
+    <item android:top="40dp" android:left="40dp" android:right="40dp" android:bottom="40dp">
+        <shape android:shape="oval">
+            <solid android:color="#40FFFFFF" />
+        </shape>
+    </item>
+    
+    <!-- Center icon area -->
+    <item android:gravity="center">
+        <shape android:shape="rectangle">
+            <size android:width="80dp" android:height="80dp" />
+            <solid android:color="#80FFFFFF" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+</layer-list>

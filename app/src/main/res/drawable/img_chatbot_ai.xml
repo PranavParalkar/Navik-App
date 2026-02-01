@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background gradient -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#30CFD0"
+                android:endColor="#330867"
+                android:angle="135" />
+        </shape>
+    </item>
+    
+    <!-- Chat bubble 1 -->
+    <item android:top="40dp" android:left="30dp" android:width="100dp" android:height="60dp" android:gravity="top|start">
+        <shape android:shape="rectangle">
+            <solid android:color="#80FFFFFF" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+    
+    <!-- Chat bubble 2 -->
+    <item android:top="120dp" android:right="30dp" android:width="120dp" android:height="60dp" android:gravity="top|end">
+        <shape android:shape="rectangle">
+            <solid android:color="#60FFFFFF" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+    
+    <!-- AI icon circle -->
+    <item android:gravity="center">
+        <shape android:shape="oval">
+            <size android:width="60dp" android:height="60dp" />
+            <solid android:color="#FFFFFF" />
+        </shape>
+    </item>
+</layer-list>

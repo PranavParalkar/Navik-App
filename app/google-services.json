@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "193111418008",
+    "project_id": "codingaiapp",
+    "storage_bucket": "codingaiapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193111418008:android:af19c38dbcea07fdff1ced",
+        "android_client_info": {
+          "package_name": "com.example.navik"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193111418008-5ea7ssejde8knhcvhuldlciefpkqsdo3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.navik",
+            "certificate_hash": "75cd7c1f0fdb88b5c598a1c56d0c747071c18717"
+          }
+        },
+        {
+          "client_id": "193111418008-de81sl9j8ermvufnjoei03cjv5e7q7ik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq5q_oYMcPIrH9hi_dkGqFEB7oo9YpGys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193111418008-de81sl9j8ermvufnjoei03cjv5e7q7ik.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
