@@ -27,6 +27,9 @@
     <!-- Gradient Colors -->
     <color name="gradient_start">#6366F1</color>
     <color name="gradient_end">#8B5CF6</color>
+
+    <!-- Launcher/Splash icon background (sampled from app logo) -->
+    <color name="launcher_icon_background">#96E6FF</color>
     
     <!-- Legacy Support -->
     <color name="purple_gradient_start">#6366F1</color>

@@ -28,4 +28,17 @@
     </style>
 
     <style name="Theme.Navik" parent="Base.Theme.Navik" />
+
+    <!-- Splash theme used only for launcher activity.
+         Shows your app logo instead of the default Android icon. -->
+    <style name="Theme.Navik.Splash" parent="Theme.SplashScreen">
+        <!-- Android 12+ splash configuration -->
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_logo_inset</item>
+        <item name="windowSplashScreenIconBackgroundColor">@android:color/transparent</item>
+        <item name="postSplashScreenTheme">@style/Theme.Navik</item>
+
+        <!-- Pre-Android-12 fallback -->
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
 </resources>
