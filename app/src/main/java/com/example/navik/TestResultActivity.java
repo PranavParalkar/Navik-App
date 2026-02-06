@@ -33,6 +33,13 @@ public class TestResultActivity extends AppCompatActivity {
     }
     
     private void displayResults(int score, int total) {
+        String testName = getIntent().getStringExtra("testName");
+        if (testName != null && testName.equalsIgnoreCase("Personality Assessment")) {
+            scoreText.setText(total + "/" + total);
+            percentageText.setText("Completed");
+            return;
+        }
+
         scoreText.setText(score + "/" + total);
         int percentage = (score * 100) / total;
         percentageText.setText(percentage + "%");

@@ -6,7 +6,7 @@ public class Question {
     private String optionB;
     private String optionC;
     private String optionD;
-    private int correctAnswer; // 0=A, 1=B, 2=C, 3=D
+    private int correctAnswer; // 0=A, 1=B, 2=C, 3=D; use -1 for non-scored questions
     
     public Question(String question, String optionA, String optionB, String optionC, String optionD, int correctAnswer) {
         this.question = question;
