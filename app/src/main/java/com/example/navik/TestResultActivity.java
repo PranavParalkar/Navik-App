@@ -34,7 +34,7 @@ public class TestResultActivity extends AppCompatActivity {
     
     private void displayResults(int score, int total) {
         String testName = getIntent().getStringExtra("testName");
-        if (testName != null && testName.equalsIgnoreCase("Personality Assessment")) {
+        if (testName != null && (testName.equalsIgnoreCase("Personality Assessment") || testName.equalsIgnoreCase("EQ Test"))) {
             scoreText.setText(total + "/" + total);
             percentageText.setText("Completed");
             return;

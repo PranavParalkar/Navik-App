@@ -11,7 +11,7 @@ import androidx.cardview.widget.CardView;
 public class TestsActivity extends AppCompatActivity {
     
     private ImageView btnBack;
-    private CardView cardIQTest, cardPersonalityTest, cardNumericalTest, cardMechanicalTest, cardAbstractTest;
+    private CardView cardIQTest, cardPersonalityTest, cardEQTest, cardMemoryTest, cardNumericalTest, cardSpaceRelationsTest, cardMechanicalTest, cardAbstractTest;
     private LinearLayout navHome, navFiles, navBooks, navProfile;
     
     @Override
@@ -28,7 +28,10 @@ public class TestsActivity extends AppCompatActivity {
         btnBack = findViewById(R.id.btnBack);
         cardIQTest = findViewById(R.id.cardIQTest);
         cardPersonalityTest = findViewById(R.id.cardPersonalityTest);
+        cardEQTest = findViewById(R.id.cardEQTest);
+        cardMemoryTest = findViewById(R.id.cardMemoryTest);
         cardNumericalTest = findViewById(R.id.cardNumericalTest);
+        cardSpaceRelationsTest = findViewById(R.id.cardSpaceRelationsTest);
         cardMechanicalTest = findViewById(R.id.cardMechanicalTest);
         cardAbstractTest = findViewById(R.id.cardAbstractTest);
         
@@ -43,7 +46,16 @@ public class TestsActivity extends AppCompatActivity {
     private void setupClickListeners() {
         cardIQTest.setOnClickListener(v -> startTest("IQ Test", 10));
         cardPersonalityTest.setOnClickListener(v -> startTest("Personality Assessment", 10));
+        if (cardEQTest != null) {
+            cardEQTest.setOnClickListener(v -> startTest("EQ Test", 10));
+        }
+        if (cardMemoryTest != null) {
+            cardMemoryTest.setOnClickListener(v -> startActivity(new Intent(this, MemoryTestActivity.class)));
+        }
         cardNumericalTest.setOnClickListener(v -> startTest("Numerical Ability", 15));
+        if (cardSpaceRelationsTest != null) {
+            cardSpaceRelationsTest.setOnClickListener(v -> startTest("Space Relations", 10));
+        }
         cardMechanicalTest.setOnClickListener(v -> startTest("Mechanical Reasoning", 10));
         cardAbstractTest.setOnClickListener(v -> startTest("Abstract Reasoning", 10));
     }

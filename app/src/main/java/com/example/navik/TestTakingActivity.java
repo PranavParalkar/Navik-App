@@ -61,7 +61,97 @@ public class TestTakingActivity extends AppCompatActivity {
     private void loadQuestions() {
         questions = new ArrayList<>();
 
-        if (testName != null && testName.equalsIgnoreCase("Numerical Ability")) {
+        if (testName != null && testName.equalsIgnoreCase("IQ Test")) {
+            questions.add(new Question(
+                "Question 1: Which number comes next in the sequence - 1, 4, 9, 25, ?",
+                "36",
+                "49",
+                "16",
+                "81",
+                3
+            ));
+
+            questions.add(new Question(
+                "Question 2: Which number should replace the question mark - 10, 14, 19, 25, ?",
+                "32",
+                "30",
+                "31",
+                "34",
+                0
+            ));
+
+            questions.add(new Question(
+                "Question 3: Which of the following is the odd one out - 3, 5, 7, 9, 11",
+                "3",
+                "7",
+                "9",
+                "11",
+                2
+            ));
+
+            questions.add(new Question(
+                "Question 4: Complete the pattern: AA, AB, AC, AD, ?",
+                "BA",
+                "AE",
+                "BB",
+                "CA",
+                1
+            ));
+
+            questions.add(new Question(
+                "Question 5: In a certain code, ‘APPLE’ is written as 124516. How is ‘GRAPE’ written?",
+                "716451",
+                "715641",
+                "651741",
+                "715461",
+                0
+            ));
+
+            questions.add(new Question(
+                "Question 6: What is the missing number - 1, 4, 27, 16, 125, ?",
+                "216",
+                "64",
+                "343",
+                "25",
+                0
+            ));
+
+            questions.add(new Question(
+                "Question 7: Which number completes this triangle?\n\n1\n2 3\n4 5 6\n7 8 ? 10",
+                "9",
+                "11",
+                "12",
+                "13",
+                0
+            ));
+
+            questions.add(new Question(
+                "Question 8: In a family, the son is twice as old as the daughter. The mother is 20 years older than the daughter, and the father is 3 years older than the mother. If the son is 12 years old, how old is the father?",
+                "42",
+                "45",
+                "48",
+                "50",
+                1
+            ));
+
+            questions.add(new Question(
+                "Question 9: You have three containers labeled A, B, and C. A contains 9 liters, B contains 3 liters, and C contains 5 liters. You are asked to make exactly 6 liters in container A. What would you do?",
+                "Transfer 3 liters from A to C",
+                "Transfer 3 liters from C to B",
+                "Transfer 3 liters from B to C",
+                "Transfer 6 liters from A to C",
+                0
+            ));
+
+            questions.add(new Question(
+                "Question 10: What is the next letter in the sequence - B, D, G, K, ?",
+                "M",
+                "N",
+                "O",
+                "P",
+                2
+            ));
+        } else if (testName != null && testName.equalsIgnoreCase("Numerical Ability")) {
             questions.add(new Question(
                 "Question 1: A mobile phone originally costs ₹25,000 and is offered at a 20% discount during a sale. What is the sale price?",
                 "₹20,000",
@@ -285,6 +375,366 @@ public class TestTakingActivity extends AppCompatActivity {
                 "Set vague goals",
                 "Rely on others to help",
                 -1
+            ));
+        } else if (testName != null && testName.equalsIgnoreCase("EQ Test")) {
+            questions.add(new Question(
+                "Question 1: You are feeling overwhelmed at work. What do you do?",
+                "Push through it and work without a break",
+                "Take a short break and return to work",
+                "Complain to a coworker about your workload",
+                "Leave work early",
+                -1
+            ));
+
+            questions.add(new Question(
+                "Question 2: Your friend is upset, and you don’t fully understand why. You:",
+                "Ignore it and move on",
+                "Ask them if they want to talk about it",
+                "Tell them it’s not a big deal",
+                "Try to cheer them up without addressing the issue",
+                -1
+            ));
+
+            questions.add(new Question(
+                "Question 3: You receive negative feedback at work. What’s your reaction?",
+                "Defend yourself immediately",
+                "Reflect on the feedback and see if it’s valid",
+                "Ignore the feedback",
+                "Feel personally attacked and get upset",
+                -1
+            ));
+
+            questions.add(new Question(
+                "Question 4: A colleague makes a mistake on a team project. You:",
+                "Point out their mistake publicly",
+                "Help them fix it without making a big deal",
+                "Ignore it and let them handle it",
+                "Report them to your boss",
+                -1
+            ));
+
+            questions.add(new Question(
+                "Question 5: In a heated argument, you:",
+                "Raise your voice to make your point",
+                "Stay calm and listen to the other person’s perspective",
+                "Walk away to avoid confrontation",
+                "Try to win the argument at all costs",
+                -1
+            ));
+
+            questions.add(new Question(
+                "Question 6: You see a coworker struggling with a task. You:",
+                "Offer to help them with it",
+                "Ignore it and focus on your work",
+                "Criticize them for not being able to handle it",
+                "Wait for them to ask for help",
+                -1
+            ));
+
+            questions.add(new Question(
+                "Question 7: You and your friend had a disagreement. What do you do?",
+                "Apologize if needed and move on",
+                "Wait for them to apologize first",
+                "Avoid talking to them for a while",
+                "Confront them aggressively",
+                -1
+            ));
+
+            questions.add(new Question(
+                "Question 8: You’re feeling down, but you have an important meeting. What do you do?",
+                "Focus on the meeting and deal with your emotions later",
+                "Skip the meeting and take time for yourself",
+                "Complain to your coworkers about how you feel",
+                "Participate in the meeting but with little effort",
+                -1
+            ));
+
+            questions.add(new Question(
+                "Question 9: A friend is going through a tough time and shares their feelings with you. You:",
+                "Listen actively and offer emotional support",
+                "Give them practical advice without much listening",
+                "Tell them to cheer up and focus on the positive",
+                "Change the subject if it gets too emotional",
+                -1
+            ));
+
+            questions.add(new Question(
+                "Question 10: You made a mistake at work. How do you handle it?",
+                "Admit the mistake and try to fix it",
+                "Blame someone else to avoid repercussions",
+                "Hide the mistake and hope no one notices",
+                "Ignore it and continue working as usual",
+                -1
+            ));
+        } else if (testName != null && testName.equalsIgnoreCase("Space Relations")) {
+            questions.add(new Question(
+                "Question 1: Which object has the same volume as a cylinder with a radius of 3 cm and height of 5 cm?",
+                "Sphere with radius 4.5 cm",
+                "Cube with side 6 cm",
+                "Rectangular prism with dimensions 5x5x5 cm",
+                "Cone with radius 3 cm and height 6 cm",
+                1
+            ));
+
+            questions.add(new Question(
+                "Question 2: If you view an object from different angles and see different shapes, what type of perspective is this?",
+                "Linear perspective",
+                "Aerial perspective",
+                "Axonometric perspective",
+                "Isometric perspective",
+                2
+            ));
+
+            questions.add(new Question(
+                "Question 3: If you move a box 3 steps forward and 2 steps to the left, what is the new position relative to the starting point?",
+                "(3, 2)",
+                "(2, 3)",
+                "(3, -2)",
+                "(0, 0)",
+                2
+            ));
+
+            questions.add(new Question(
+                "Question 4: What will be the shape of the shadow of a cylinder when light is cast directly overhead?",
+                "Circle",
+                "Rectangle",
+                "Ellipse",
+                "Triangle",
+                0
+            ));
+
+            questions.add(new Question(
+                "Question 5: Which of the following shapes cannot be transformed into a cylinder by rotating?",
+                "Rectangle",
+                "Triangle",
+                "Square",
+                "Circle",
+                3
+            ));
+
+            questions.add(new Question(
+                "Question 6: Which shape has the largest area?",
+                "Circle with radius 1 cm",
+                "Square with side 1 cm",
+                "Triangle with base 1 cm and height 1 cm",
+                "Rectangle with length 1 cm and width 1 cm",
+                0
+            ));
+
+            questions.add(new Question(
+                "Question 7: What shape do you get when you cut a sphere in half?",
+                "Cube",
+                "Circle",
+                "Hemisphere",
+                "Oval",
+                2
+            ));
+
+            questions.add(new Question(
+                "Question 8: In a 3D model, which axis represents height?",
+                "X-axis",
+                "Y-axis",
+                "Z-axis",
+                "W-axis",
+                2
+            ));
+
+            questions.add(new Question(
+                "Question 9: What is the angle between two parallel lines?",
+                "45 degrees",
+                "90 degrees",
+                "0 degrees",
+                "180 degrees",
+                2
+            ));
+
+            questions.add(new Question(
+                "Question 10: Which shape can be folded into a cube?",
+                "T-shape",
+                "L-shape",
+                "I-shape",
+                "Z-shape",
+                0
+            ));
+        } else if (testName != null && testName.equalsIgnoreCase("Mechanical Reasoning")) {
+            questions.add(new Question(
+                "Question 1: Which of the following tools is best for cutting wood?",
+                "Hammer",
+                "Saw",
+                "Screwdriver",
+                "Wrench",
+                1
+            ));
+
+            questions.add(new Question(
+                "Question 2: If a car accelerates from rest to 60 km/h in 10 seconds, what is its acceleration?",
+                "6 km/h²",
+                "12 km/h²",
+                "3 km/h²",
+                "1 km/h²",
+                0
+            ));
+
+            questions.add(new Question(
+                "Question 3: What type of simple machine is a lever?",
+                "Inclined plane",
+                "Wheel and axle",
+                "Fulcrum",
+                "Pulley",
+                2
+            ));
+
+            questions.add(new Question(
+                "Question 4: In a hydraulic lift, what principle is used to lift heavy objects?",
+                "Archimedes' principle",
+                "Pascal's principle",
+                "Bernoulli's principle",
+                "Newton's law",
+                1
+            ));
+
+            questions.add(new Question(
+                "Question 5: What is the main purpose of a pulley?",
+                "To change the direction of a force",
+                "To increase speed",
+                "To store energy",
+                "To create friction",
+                0
+            ));
+
+            questions.add(new Question(
+                "Question 6: In which part of the lever is the load placed?",
+                "Effort",
+                "Fulcrum",
+                "Load arm",
+                "Resistance",
+                2
+            ));
+
+            questions.add(new Question(
+                "Question 7: What will happen to the pressure in a fluid if the volume is decreased?",
+                "It increases",
+                "It decreases",
+                "It remains the same",
+                "It doubles",
+                0
+            ));
+
+            questions.add(new Question(
+                "Question 8: What is the primary purpose of a gear?",
+                "To store energy",
+                "To transmit motion",
+                "To change speed",
+                "To create friction",
+                1
+            ));
+
+            questions.add(new Question(
+                "Question 9: Which of the following best describes the concept of torque?",
+                "Force applied to an object",
+                "A twisting force",
+                "Speed of rotation",
+                "Weight of an object",
+                1
+            ));
+
+            questions.add(new Question(
+                "Question 10: What type of lever has the load between the fulcrum and the effort?",
+                "First class lever",
+                "Second class lever",
+                "Third class lever",
+                "Compound lever",
+                1
+            ));
+        } else if (testName != null && testName.equalsIgnoreCase("Abstract Reasoning")) {
+            questions.add(new Question(
+                "Question 1: If the first two shapes are circles, what will be the third shape if the pattern alternates between circles and squares?",
+                "Circle",
+                "Square",
+                "Triangle",
+                "Rectangle",
+                1
+            ));
+
+            questions.add(new Question(
+                "Question 2: Which number logically follows this series? (2, 4, 8, 16, ?)",
+                "20",
+                "24",
+                "32",
+                "36",
+                2
+            ));
+
+            questions.add(new Question(
+                "Question 3: Which number does not belong in this set? (1, 3, 5, 7, 8)",
+                "1",
+                "3",
+                "5",
+                "8",
+                3
+            ));
+
+            questions.add(new Question(
+                "Question 4: What comes next in this number pattern: (1, 1, 2, 3, 5, ?)",
+                "8",
+                "10",
+                "12",
+                "13",
+                0
+            ));
+
+            questions.add(new Question(
+                "Question 5: Which number logically follows this sequence? (1, 4, 9, 16, ?)",
+                "20",
+                "25",
+                "30",
+                "36",
+                1
+            ));
+
+            questions.add(new Question(
+                "Question 6: What is the next number in the pattern: (5, 10, 20, 40, ?)",
+                "50",
+                "60",
+                "70",
+                "80",
+                3
+            ));
+
+            questions.add(new Question(
+                "Question 7: Which shape is similar to a circle?",
+                "Triangle",
+                "Square",
+                "Oval",
+                "Rectangle",
+                2
+            ));
+
+            questions.add(new Question(
+                "Question 8: What number is represented by the Roman numeral V?",
+                "4",
+                "5",
+                "6",
+                "7",
+                1
+            ));
+
+            questions.add(new Question(
+                "Question 9: What is the missing number in the sequence (2, 5, 11, 23, ?)",
+                "47",
+                "46",
+                "45",
+                "44",
+                0
+            ));
+
+            questions.add(new Question(
+                "Question 10: What is the next number in this series (4, 8, 14, 22, 32, ?)",
+                "44",
+                "45",
+                "46",
+                "48",
+                0
             ));
         } else {
             // Default placeholder questions for other tests
