@@ -18,7 +18,7 @@ public class BooksActivity extends AppCompatActivity {
     private CardView cardFreeCodeCamp, cardDuolingo;
     private CardView cardHBRArticle, cardForbesArticle, cardMediumArticle, cardTEDTalk;
     private FrameLayout chatButton;
-    private LinearLayout navHome, navFiles, navBooks, navProfile;
+    private LinearLayout navHome, navFiles, navSkills, navCareer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +52,8 @@ public class BooksActivity extends AppCompatActivity {
         
         navHome = findViewById(R.id.navHome);
         navFiles = findViewById(R.id.navFiles);
-        navBooks = findViewById(R.id.navBooks);
-        navProfile = findViewById(R.id.navProfile);
+        navSkills = findViewById(R.id.navSkills);
+        navCareer = findViewById(R.id.navCareer);
         
         if (btnBack != null) {
             btnBack.setOnClickListener(v -> finish());
@@ -171,15 +171,15 @@ public class BooksActivity extends AppCompatActivity {
             );
         }
         
-        if (navBooks != null) {
-            navBooks.setOnClickListener(v -> {
-                // Already on books page
-            });
+        if (navSkills != null) {
+            navSkills.setOnClickListener(v -> 
+                startActivity(new Intent(this, SkillPlatformActivity.class))
+            );
         }
         
-        if (navProfile != null) {
-            navProfile.setOnClickListener(v -> 
-                startActivity(new Intent(this, ProfileActivity.class))
+        if (navCareer != null) {
+            navCareer.setOnClickListener(v -> 
+                startActivity(new Intent(this, CareerExplorationActivity.class))
             );
         }
     }

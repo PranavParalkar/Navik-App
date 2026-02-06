@@ -23,9 +23,9 @@ public class HomeActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private ImageView menuIcon;
     private TextView userName, drawerUserName, drawerUserEmail;
-    private CardView cardCareerExploration, cardMentorCommunity, cardReport, cardRoadmap;
+    private CardView cardJobListings, cardMentorCommunity, cardReport, cardRoadmap;
     private FloatingActionButton chatButton;
-    private LinearLayout navHome, navFiles, navBooks, navProfile;
+    private LinearLayout navHome, navFiles, navSkills, navCareer;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class HomeActivity extends AppCompatActivity {
         drawerUserName = headerView.findViewById(R.id.drawerUserName);
         drawerUserEmail = headerView.findViewById(R.id.drawerUserEmail);
         
-        cardCareerExploration = findViewById(R.id.cardCareerExploration);
+        cardJobListings = findViewById(R.id.cardJobListings);
         cardMentorCommunity = findViewById(R.id.cardMentorCommunity);
         cardReport = findViewById(R.id.cardReport);
         cardRoadmap = findViewById(R.id.cardRoadmap);
@@ -57,8 +57,8 @@ public class HomeActivity extends AppCompatActivity {
         
         navHome = findViewById(R.id.navHome);
         navFiles = findViewById(R.id.navFiles);
-        navBooks = findViewById(R.id.navBooks);
-        navProfile = findViewById(R.id.navProfile);
+        navSkills = findViewById(R.id.navSkills);
+        navCareer = findViewById(R.id.navCareer);
     }
     
     private void loadUserData() {
@@ -79,7 +79,7 @@ public class HomeActivity extends AppCompatActivity {
             if (id == R.id.nav_home) {
                 drawerLayout.closeDrawer(GravityCompat.START);
             } else if (id == R.id.nav_job_listing) {
-                startActivity(new Intent(this, CareerExplorationActivity.class));
+                startActivity(new Intent(this, JobListingsActivity.class));
             } else if (id == R.id.nav_scholarship) {
                 startActivity(new Intent(this, BooksActivity.class));
             } else if (id == R.id.nav_discussion) {
@@ -115,8 +115,8 @@ public class HomeActivity extends AppCompatActivity {
     }
     
     private void setupClickListeners() {
-        cardCareerExploration.setOnClickListener(v -> 
-            startActivity(new Intent(this, CareerExplorationActivity.class))
+        cardJobListings.setOnClickListener(v -> 
+            startActivity(new Intent(this, JobListingsActivity.class))
         );
         
         cardMentorCommunity.setOnClickListener(v -> 
@@ -149,12 +149,12 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(new Intent(this, TestsActivity.class))
         );
         
-        navBooks.setOnClickListener(v -> 
-            startActivity(new Intent(this, BooksActivity.class))
+        navSkills.setOnClickListener(v -> 
+            startActivity(new Intent(this, SkillPlatformActivity.class))
         );
         
-        navProfile.setOnClickListener(v -> 
-            startActivity(new Intent(this, ProfileActivity.class))
+        navCareer.setOnClickListener(v -> 
+            startActivity(new Intent(this, CareerExplorationActivity.class))
         );
     }
     

@@ -15,7 +15,7 @@ public class TestsActivity extends AppCompatActivity {
     
     private ImageView btnBack;
     private CardView cardIQTest, cardPersonalityTest, cardEQTest, cardMemoryTest, cardNumericalTest, cardSpaceRelationsTest, cardMechanicalTest, cardAbstractTest;
-    private LinearLayout navHome, navFiles, navBooks, navProfile;
+    private LinearLayout navHome, navFiles, navSkills, navCareer;
 
     private View layoutIQTest, layoutPersonalityTest, layoutEQTest, layoutMemoryTest, layoutNumericalTest, layoutSpaceRelationsTest, layoutMechanicalTest, layoutAbstractTest;
     private TextView tvIQStatus, tvPersonalityStatus, tvEQStatus, tvMemoryStatus, tvNumericalStatus, tvSpaceRelationsStatus, tvMechanicalStatus, tvAbstractStatus;
@@ -69,8 +69,8 @@ public class TestsActivity extends AppCompatActivity {
         
         navHome = findViewById(R.id.navHome);
         navFiles = findViewById(R.id.navFiles);
-        navBooks = findViewById(R.id.navBooks);
-        navProfile = findViewById(R.id.navProfile);
+        navSkills = findViewById(R.id.navSkills);
+        navCareer = findViewById(R.id.navCareer);
         
         btnBack.setOnClickListener(v -> finish());
     }
@@ -142,15 +142,15 @@ public class TestsActivity extends AppCompatActivity {
             });
         }
         
-        if (navBooks != null) {
-            navBooks.setOnClickListener(v -> 
-                startActivity(new Intent(this, BooksActivity.class))
+        if (navSkills != null) {
+            navSkills.setOnClickListener(v -> 
+                startActivity(new Intent(this, SkillPlatformActivity.class))
             );
         }
         
-        if (navProfile != null) {
-            navProfile.setOnClickListener(v -> 
-                startActivity(new Intent(this, ProfileActivity.class))
+        if (navCareer != null) {
+            navCareer.setOnClickListener(v -> 
+                startActivity(new Intent(this, CareerExplorationActivity.class))
             );
         }
     }

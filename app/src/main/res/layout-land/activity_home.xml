@@ -371,7 +371,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/navBooks"
+            android:id="@+id/navSkills"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -383,12 +383,12 @@
             <ImageView
                 android:layout_width="@dimen/icon_medium"
                 android:layout_height="@dimen/icon_medium"
-                android:src="@drawable/ic_books" />
+                android:src="@drawable/ic_skills" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/navProfile"
+            android:id="@+id/navCareer"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -400,7 +400,7 @@
             <ImageView
                 android:layout_width="@dimen/icon_medium"
                 android:layout_height="@dimen/icon_medium"
-                android:src="@drawable/ic_profile" />
+                android:src="@drawable/ic_career" />
 
         </LinearLayout>
 

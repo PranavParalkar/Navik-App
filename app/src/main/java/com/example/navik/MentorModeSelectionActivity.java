@@ -11,7 +11,7 @@ public class MentorModeSelectionActivity extends AppCompatActivity {
     
     private ImageView btnBack;
     private CardView cardAsMentor, cardAsStudent;
-    private LinearLayout navHome, navFiles, navBooks, navProfile;
+    private LinearLayout navHome, navFiles, navSkills, navCareer;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +30,8 @@ public class MentorModeSelectionActivity extends AppCompatActivity {
         
         navHome = findViewById(R.id.navHome);
         navFiles = findViewById(R.id.navFiles);
-        navBooks = findViewById(R.id.navBooks);
-        navProfile = findViewById(R.id.navProfile);
+        navSkills = findViewById(R.id.navSkills);
+        navCareer = findViewById(R.id.navCareer);
     }
     
     private void setupClickListeners() {
@@ -58,12 +58,12 @@ public class MentorModeSelectionActivity extends AppCompatActivity {
             startActivity(new Intent(this, TestsActivity.class))
         );
         
-        navBooks.setOnClickListener(v -> 
-            startActivity(new Intent(this, BooksActivity.class))
+        navSkills.setOnClickListener(v -> 
+            startActivity(new Intent(this, SkillPlatformActivity.class))
         );
         
-        navProfile.setOnClickListener(v -> 
-            startActivity(new Intent(this, ProfileActivity.class))
+        navCareer.setOnClickListener(v -> 
+            startActivity(new Intent(this, CareerExplorationActivity.class))
         );
     }
 }
