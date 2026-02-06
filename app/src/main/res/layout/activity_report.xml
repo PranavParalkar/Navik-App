@@ -341,26 +341,27 @@
 
     </ScrollView>
 
-    <!-- Bottom Navigation -->
-    <LinearLayout
+    <!-- Bottom Navigation Bar -->
+    <androidx.cardview.widget.CardView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="68dp"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:background="@color/white"
-        android:elevation="8dp"
-        android:weightSum="4">
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="20dp"
+        app:cardBackgroundColor="@android:color/white">
 
         <LinearLayout
-            android:id="@+id/navHome"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:weightSum="4"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
 
             <LinearLayout
                 android:id="@+id/navHome"
@@ -444,57 +445,6 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/navFiles"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_files" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/navBooks"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_books" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/navProfile"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_profile" />
-
-        </LinearLayout>
-
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

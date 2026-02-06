@@ -498,92 +498,109 @@
 
 
 
-    <!-- Bottom Navigation -->
+    <!-- Bottom Navigation Bar -->
     <androidx.cardview.widget.CardView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="68dp"
         android:layout_alignParentBottom="true"
-        app:cardElevation="16dp"
-        app:cardCornerRadius="0dp"
-        app:cardBackgroundColor="@color/surface">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:weightSum="4"
-        android:paddingVertical="@dimen/spacing_small">
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="20dp"
+        app:cardBackgroundColor="@android:color/white">
 
         <LinearLayout
-            android:id="@+id/navHome"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:weightSum="4"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
 
-            <ImageView
-                android:layout_width="@dimen/icon_medium"
-                android:layout_height="@dimen/icon_medium"
-                android:src="@drawable/ic_home" />
+            <LinearLayout
+                android:id="@+id/navHome"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_home"
+                    android:contentDescription="Home"
+                    app:tint="@color/primary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/navFiles"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_files"
+                    android:contentDescription="Tests"
+                    app:tint="@color/text_secondary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/navSkills"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_skills"
+                    android:contentDescription="Skills"
+                    app:tint="@color/text_secondary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/navCareer"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_career"
+                    android:contentDescription="Career"
+                    app:tint="@color/text_secondary" />
+
+            </LinearLayout>
 
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/navFiles"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="@dimen/icon_medium"
-                android:layout_height="@dimen/icon_medium"
-                android:src="@drawable/ic_files" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/navBooks"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="@dimen/icon_medium"
-                android:layout_height="@dimen/icon_medium"
-                android:src="@drawable/ic_books" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/navProfile"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="@dimen/icon_medium"
-                android:layout_height="@dimen/icon_medium"
-                android:src="@drawable/ic_profile" />
-
-        </LinearLayout>
-
-    </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 

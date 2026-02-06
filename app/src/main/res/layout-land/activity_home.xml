@@ -75,7 +75,7 @@
                 android:layout_marginBottom="@dimen/spacing_large">
 
                 <LinearLayout
-                    android:id="@+id/cardCareerExploration"
+                    android:id="@+id/cardJobListings"
                     android:layout_width="0dp"
                     android:layout_height="140dp"
                     android:layout_columnWeight="1"
@@ -90,7 +90,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Career\nExploration"
+                        android:text="Job\nListings"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_normal"
                         android:textStyle="bold"
@@ -99,7 +99,7 @@
                     <ImageView
                         android:layout_width="@dimen/icon_medium"
                         android:layout_height="@dimen/icon_medium"
-                        android:src="@drawable/ic_career_exploration"
+                        android:src="@drawable/ic_job_listing"
                         android:layout_marginTop="@dimen/spacing_tiny" />
 
                 </LinearLayout>
