@@ -25,7 +25,7 @@ public class HomeActivity extends AppCompatActivity {
     private TextView userName, drawerUserName, drawerUserEmail;
     private CardView cardJobListings, cardMentorCommunity, cardReport, cardRoadmap;
     private FloatingActionButton chatButton;
-    private LinearLayout navHome, navFiles, navSkills, navCareer;
+    private LinearLayout navHome, navFiles, navBooks, navProfile;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +57,8 @@ public class HomeActivity extends AppCompatActivity {
         
         navHome = findViewById(R.id.navHome);
         navFiles = findViewById(R.id.navFiles);
-        navSkills = findViewById(R.id.navSkills);
-        navCareer = findViewById(R.id.navCareer);
+        navBooks = findViewById(R.id.navBooks);
+        navProfile = findViewById(R.id.navProfile);
     }
     
     private void loadUserData() {
@@ -149,12 +149,12 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(new Intent(this, TestsActivity.class))
         );
         
-        navSkills.setOnClickListener(v -> 
-            startActivity(new Intent(this, SkillPlatformActivity.class))
+        navBooks.setOnClickListener(v ->
+            startActivity(new Intent(this, BooksActivity.class))
         );
-        
-        navCareer.setOnClickListener(v -> 
-            startActivity(new Intent(this, CareerExplorationActivity.class))
+
+        navProfile.setOnClickListener(v ->
+            startActivity(new Intent(this, ProfileActivity.class))
         );
     }
     
