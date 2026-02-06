@@ -7,6 +7,7 @@ import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +25,7 @@ public class MemoryTestActivity extends AppCompatActivity {
     private TextView instructionText;
     private TextView counterText;
     private TextView letterText;
+    private ImageView btnBack;
     private Button btnStart;
 
     private View inputSection;
@@ -66,6 +68,7 @@ public class MemoryTestActivity extends AppCompatActivity {
     }
 
     private void bindViews() {
+        btnBack = findViewById(R.id.btnBack);
         testTitle = findViewById(R.id.testTitle);
         instructionText = findViewById(R.id.instructionText);
         counterText = findViewById(R.id.counterText);
@@ -80,6 +83,10 @@ public class MemoryTestActivity extends AppCompatActivity {
     private void setupUi() {
         testTitle.setText("Memory Test");
         instructionText.setText("You will see 10 letters, one by one. Memorize the exact order.\n\nEach letter changes every 3 seconds. After the last letter, enter the order.");
+
+        if (btnBack != null) {
+            btnBack.setOnClickListener(v -> finish());
+        }
 
         inputSection.setVisibility(View.GONE);
         letterText.setText("-");
@@ -138,6 +145,8 @@ public class MemoryTestActivity extends AppCompatActivity {
                 score++;
             }
         }
+
+        TestProgressManager.markCompleted(this, TestProgressManager.TEST_MEMORY);
 
         Intent intent = new Intent(this, TestResultActivity.class);
         intent.putExtra("score", score);

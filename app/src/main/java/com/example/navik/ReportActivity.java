@@ -16,6 +16,13 @@ public class ReportActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report);
+
+        if (!TestProgressManager.areAllTestsCompleted(this)) {
+            Toast.makeText(this, "Complete all tests to view the report.", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, TestsActivity.class));
+            finish();
+            return;
+        }
         
         initializeViews();
         setupNavigation();

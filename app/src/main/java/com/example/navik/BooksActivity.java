@@ -63,8 +63,14 @@ public class BooksActivity extends AppCompatActivity {
     private void setupClickListeners() {
         if (cardReport != null) {
             cardReport.setOnClickListener(v -> 
-                startActivity(new Intent(this, ReportActivity.class))
-            );
+            {
+                if (!TestProgressManager.areAllTestsCompleted(this)) {
+                    Toast.makeText(this, "Complete all tests to unlock the report.", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(this, TestsActivity.class));
+                    return;
+                }
+                startActivity(new Intent(this, ReportActivity.class));
+            });
         }
         
         if (cardRoadmap != null) {

@@ -49,8 +49,14 @@ public class ProfileActivity extends AppCompatActivity {
         btnBack.setOnClickListener(v -> finish());
         
         menuProgress.setOnClickListener(v -> 
-            startActivity(new Intent(this, ReportActivity.class))
-        );
+        {
+            if (!TestProgressManager.areAllTestsCompleted(this)) {
+                Toast.makeText(this, "Complete all tests to unlock the report.", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, TestsActivity.class));
+                return;
+            }
+            startActivity(new Intent(this, ReportActivity.class));
+        });
         
         menuDownloads.setOnClickListener(v -> 
             Toast.makeText(this, "Downloads feature coming soon", Toast.LENGTH_SHORT).show()

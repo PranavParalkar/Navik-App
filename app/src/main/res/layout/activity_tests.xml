@@ -58,6 +58,7 @@
                 android:foreground="?android:attr/selectableItemBackground">
 
                 <LinearLayout
+                    android:id="@+id/layoutIQTest"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -84,6 +85,7 @@
                         android:layout_gravity="center_vertical" />
 
                     <TextView
+                        android:id="@+id/tvIQStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"
@@ -107,6 +109,7 @@
                 android:foreground="?android:attr/selectableItemBackground">
 
                 <LinearLayout
+                    android:id="@+id/layoutPersonalityTest"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -133,6 +136,7 @@
                         android:layout_gravity="center_vertical" />
 
                     <TextView
+                        android:id="@+id/tvPersonalityStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"
@@ -156,6 +160,7 @@
                 android:foreground="?android:attr/selectableItemBackground">
 
                 <LinearLayout
+                    android:id="@+id/layoutEQTest"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -182,6 +187,7 @@
                         android:layout_gravity="center_vertical" />
 
                     <TextView
+                        android:id="@+id/tvEQStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"
@@ -205,6 +211,7 @@
                 android:foreground="?android:attr/selectableItemBackground">
 
                 <LinearLayout
+                    android:id="@+id/layoutMemoryTest"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -231,6 +238,7 @@
                         android:layout_gravity="center_vertical" />
 
                     <TextView
+                        android:id="@+id/tvMemoryStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"
@@ -254,6 +262,7 @@
                 android:foreground="?android:attr/selectableItemBackground">
 
                 <LinearLayout
+                    android:id="@+id/layoutNumericalTest"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -280,6 +289,7 @@
                         android:layout_gravity="center_vertical" />
 
                     <TextView
+                        android:id="@+id/tvNumericalStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/15"
@@ -303,6 +313,7 @@
                 android:foreground="?android:attr/selectableItemBackground">
 
                 <LinearLayout
+                    android:id="@+id/layoutSpaceRelationsTest"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -329,6 +340,7 @@
                         android:layout_gravity="center_vertical" />
 
                     <TextView
+                        android:id="@+id/tvSpaceRelationsStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"
@@ -352,6 +364,7 @@
                 android:foreground="?android:attr/selectableItemBackground">
 
                 <LinearLayout
+                    android:id="@+id/layoutMechanicalTest"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -378,6 +391,7 @@
                         android:layout_gravity="center_vertical" />
 
                     <TextView
+                        android:id="@+id/tvMechanicalStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"
@@ -401,6 +415,7 @@
                 android:foreground="?android:attr/selectableItemBackground">
 
                 <LinearLayout
+                    android:id="@+id/layoutAbstractTest"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -427,6 +442,7 @@
                         android:layout_gravity="center_vertical" />
 
                     <TextView
+                        android:id="@+id/tvAbstractStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"

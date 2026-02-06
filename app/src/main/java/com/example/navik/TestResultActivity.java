@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class TestResultActivity extends AppCompatActivity {
@@ -23,6 +24,12 @@ public class TestResultActivity extends AppCompatActivity {
         initializeViews();
         displayResults(score, total);
         setupClickListeners();
+
+        boolean canViewReport = TestProgressManager.areAllTestsCompleted(this);
+        if (!canViewReport) {
+            btnViewReport.setEnabled(false);
+            btnViewReport.setAlpha(0.6f);
+        }
     }
     
     private void initializeViews() {
@@ -47,6 +54,13 @@ public class TestResultActivity extends AppCompatActivity {
     
     private void setupClickListeners() {
         btnViewReport.setOnClickListener(v -> {
+            if (!TestProgressManager.areAllTestsCompleted(this)) {
+                Toast.makeText(this, "Complete all tests to view the report.", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, TestsActivity.class));
+                finish();
+                return;
+            }
+
             startActivity(new Intent(this, ReportActivity.class));
             finish();
         });

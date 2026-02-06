@@ -3,6 +3,7 @@ package com.example.navik;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import java.util.List;
 
 public class TestTakingActivity extends AppCompatActivity {
     
+    private ImageView btnBack;
     private TextView testTitle, questionCounter, questionText;
     private TextView optionAText, optionBText, optionCText, optionDText;
     private CardView optionA, optionB, optionC, optionD;
@@ -39,6 +41,7 @@ public class TestTakingActivity extends AppCompatActivity {
     }
     
     private void initializeViews() {
+        btnBack = findViewById(R.id.btnBack);
         testTitle = findViewById(R.id.testTitle);
         questionCounter = findViewById(R.id.questionCounter);
         questionText = findViewById(R.id.questionText);
@@ -56,6 +59,10 @@ public class TestTakingActivity extends AppCompatActivity {
         btnNext = findViewById(R.id.btnNext);
         
         testTitle.setText(testName);
+
+        if (btnBack != null) {
+            btnBack.setOnClickListener(v -> finish());
+        }
     }
     
     private void loadQuestions() {
@@ -809,6 +816,10 @@ public class TestTakingActivity extends AppCompatActivity {
     }
     
     private void showResults() {
+        if (testName != null && !testName.trim().isEmpty()) {
+            TestProgressManager.markCompleted(this, testName);
+        }
+
         Intent intent = new Intent(this, TestResultActivity.class);
         intent.putExtra("score", score);
         intent.putExtra("total", totalQuestions);

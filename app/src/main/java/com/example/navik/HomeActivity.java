@@ -124,8 +124,14 @@ public class HomeActivity extends AppCompatActivity {
         );
         
         cardReport.setOnClickListener(v -> 
-            startActivity(new Intent(this, ReportActivity.class))
-        );
+        {
+            if (!TestProgressManager.areAllTestsCompleted(this)) {
+                android.widget.Toast.makeText(this, "Complete all tests to unlock the report.", android.widget.Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, TestsActivity.class));
+                return;
+            }
+            startActivity(new Intent(this, ReportActivity.class));
+        });
         
         cardRoadmap.setOnClickListener(v -> 
             startActivity(new Intent(this, RoadmapActivity.class))
