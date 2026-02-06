@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_blue_bg">
+    android:background="@color/background">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bottomNav"
-        android:fillViewport="true">
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/spacing_large">
+            android:padding="16dp">
 
             <!-- Header -->
             <LinearLayout
@@ -23,15 +23,15 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="@dimen/spacing_large">
+                android:layout_marginBottom="24dp">
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/btnBack"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:src="@drawable/ic_back"
-                    android:clickable="true"
-                    android:focusable="true" />
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Back" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -39,9 +39,8 @@
                     android:text="👥 Mentor Platform"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_primary"
                     android:layout_marginStart="12dp" />
-
             </LinearLayout>
 
             <!-- Welcome Section -->
@@ -49,197 +48,171 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="👥 Welcome to Navik Mentorship"
-                android:textSize="@dimen/text_large"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/primary"
-                android:layout_marginBottom="@dimen/spacing_small" />
+                android:layout_marginBottom="8dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Choose how you'd like to participate in our mentorship community"
-                android:textSize="@dimen/text_medium"
+                android:text="Connect with experienced mentors or share your expertise with students. Choose how you want to participate in our mentorship community."
+                android:textSize="15sp"
                 android:textColor="@color/text_secondary"
-                android:layout_marginBottom="@dimen/spacing_extra_large" />
+                android:layout_marginBottom="32dp"
+                android:lineSpacingExtra="4dp" />
 
-            <!-- As a Mentor Card -->
+            <!-- Card: Join as Mentor -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardAsMentor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_large"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="6dp"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/bg_gradient_purple"
                     android:orientation="vertical"
-                    android:padding="@dimen/spacing_large"
-                    android:background="@drawable/bg_gradient_purple">
+                    android:padding="24dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"
-                        android:layout_marginBottom="@dimen/spacing_medium">
+                        android:layout_marginBottom="12dp">
 
                         <TextView
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:text="🎓"
-                            android:textSize="32sp"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:background="@drawable/bg_icon_circle"
                             android:gravity="center"
-                            android:background="@drawable/bg_modern_card" />
+                            android:text="🎓"
+                            android:textSize="28sp" />
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:orientation="vertical"
-                            android:layout_marginStart="@dimen/spacing_medium">
+                            android:layout_marginStart="16dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Join as a Mentor"
-                                android:textSize="@dimen/text_large"
+                                android:textSize="18sp"
                                 android:textStyle="bold"
-                                android:textColor="@color/white" />
+                                android:textColor="@android:color/white" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Share your expertise"
-                                android:textSize="@dimen/text_medium"
-                                android:textColor="@color/white"
+                                android:text="Share your knowledge and guide students"
+                                android:textSize="13sp"
+                                android:textColor="@android:color/white"
                                 android:alpha="0.9" />
-
                         </LinearLayout>
-
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/ic_back"
-                            android:rotation="180"
-                            app:tint="@color/white" />
-
                     </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="• Create your mentor profile\n• Set your availability and expertise\n• Connect with students seeking guidance\n• Build your professional network"
-                        android:textSize="@dimen/text_small"
-                        android:textColor="@color/white"
+                        android:text="• Create your mentor profile\n• Set your availability and expertise\n• Connect with students seeking guidance\n• Track your mentoring impact"
+                        android:textSize="13sp"
+                        android:textColor="@android:color/white"
                         android:alpha="0.9"
                         android:lineSpacingExtra="4dp" />
-
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
 
-            <!-- As a Student Card -->
+            <!-- Card: Find a Mentor -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardAsStudent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_large"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="6dp"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:layout_marginBottom="32dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/bg_gradient_blue"
                     android:orientation="vertical"
-                    android:padding="@dimen/spacing_large"
-                    android:background="@drawable/bg_gradient_blue">
+                    android:padding="24dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"
-                        android:layout_marginBottom="@dimen/spacing_medium">
+                        android:layout_marginBottom="12dp">
 
                         <TextView
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:text="🎯"
-                            android:textSize="32sp"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:background="@drawable/bg_icon_circle"
                             android:gravity="center"
-                            android:background="@drawable/bg_modern_card" />
+                            android:text="🎯"
+                            android:textSize="28sp" />
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:orientation="vertical"
-                            android:layout_marginStart="@dimen/spacing_medium">
+                            android:layout_marginStart="16dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Find a Mentor"
-                                android:textSize="@dimen/text_large"
+                                android:textSize="18sp"
                                 android:textStyle="bold"
-                                android:textColor="@color/white" />
+                                android:textColor="@android:color/white" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Get expert guidance"
-                                android:textSize="@dimen/text_medium"
-                                android:textColor="@color/white"
+                                android:text="Get guidance from experienced professionals"
+                                android:textSize="13sp"
+                                android:textColor="@android:color/white"
                                 android:alpha="0.9" />
-
                         </LinearLayout>
-
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/ic_back"
-                            android:rotation="180"
-                            app:tint="@color/white" />
-
                     </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="• Browse available mentors\n• Filter by expertise and availability\n• Connect with industry professionals\n• Accelerate your career growth"
-                        android:textSize="@dimen/text_small"
-                        android:textColor="@color/white"
+                        android:text="• Browse mentor profiles and specialties\n• Schedule one-on-one sessions\n• Get personalized career advice\n• Build your professional network"
+                        android:textSize="13sp"
+                        android:textColor="@android:color/white"
                         android:alpha="0.9"
                         android:lineSpacingExtra="4dp" />
-
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
 
-            <!-- Statistics Section -->
+            <!-- Platform Statistics Section -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="📊 Platform Statistics"
-                android:textSize="@dimen/text_medium"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/text_primary"
-                android:layout_marginBottom="@dimen/spacing_medium" />
+                android:layout_marginBottom="16dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginBottom="@dimen/spacing_extra_large">
+                android:layout_marginBottom="80dp">
 
+                <!-- Active Mentors -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -251,7 +224,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="150+"
-                        android:textSize="@dimen/text_large"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         android:textColor="@color/primary" />
 
@@ -259,11 +232,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Active Mentors"
-                        android:textSize="@dimen/text_small"
-                        android:textColor="@color/text_secondary" />
-
+                        android:textSize="12sp"
+                        android:textColor="@color/text_secondary"
+                        android:gravity="center" />
                 </LinearLayout>
 
+                <!-- Students Helped -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -275,7 +249,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="500+"
-                        android:textSize="@dimen/text_large"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         android:textColor="@color/secondary" />
 
@@ -283,11 +257,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Students Helped"
-                        android:textSize="@dimen/text_small"
-                        android:textColor="@color/text_secondary" />
-
+                        android:textSize="12sp"
+                        android:textColor="@color/text_secondary"
+                        android:gravity="center" />
                 </LinearLayout>
 
+                <!-- Sessions Completed -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -299,7 +274,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1200+"
-                        android:textSize="@dimen/text_large"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         android:textColor="@color/accent" />
 
@@ -307,96 +282,119 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sessions Completed"
-                        android:textSize="@dimen/text_small"
-                        android:textColor="@color/text_secondary" />
-
+                        android:textSize="12sp"
+                        android:textColor="@color/text_secondary"
+                        android:gravity="center" />
                 </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="20dp"
+        app:cardBackgroundColor="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:weightSum="4"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <LinearLayout
+                android:id="@+id/navHome"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_home"
+                    android:contentDescription="Home"
+                    app:tint="@color/text_secondary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/navFiles"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_files"
+                    android:contentDescription="Tests"
+                    app:tint="@color/text_secondary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/navBooks"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_books"
+                    android:contentDescription="Reference"
+                    app:tint="@color/text_secondary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/navProfile"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_profile"
+                    android:contentDescription="Profile"
+                    app:tint="@color/text_secondary" />
 
             </LinearLayout>
 
         </LinearLayout>
 
-    </ScrollView>
-
-    <!-- Bottom Navigation -->
-    <LinearLayout
-        android:id="@+id/bottomNav"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:background="@color/white"
-        android:elevation="8dp"
-        android:weightSum="4">
-
-        <LinearLayout
-            android:id="@+id/navHome"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_home" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/navFiles"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_files" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/navBooks"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_books" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/navProfile"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_profile" />
-
-        </LinearLayout>
-
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

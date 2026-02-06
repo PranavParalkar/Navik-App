@@ -1,52 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Modern App Color Palette -->
-    <color name="primary">#6366F1</color>
-    <color name="primary_dark">#4F46E5</color>
-    <color name="primary_light">#8B5CF6</color>
-    <color name="secondary">#10B981</color>
-    <color name="accent">#F59E0B</color>
-    
+    <!-- Modern App Color Palette - Refined & Harmonious -->
+    <color name="primary">#6C63FF</color>
+    <color name="primary_dark">#5A52D5</color>
+    <color name="primary_light">#9D97FF</color>
+    <color name="secondary">#00C9A7</color>
+    <color name="secondary_dark">#00A88A</color>
+    <color name="accent">#FFB347</color>
+    <color name="accent_dark">#E69A2E</color>
+
     <!-- Background Colors -->
-    <color name="background">#F5F7FA</color>
+    <color name="background">#C8E6FF</color>
     <color name="surface">#FFFFFF</color>
     <color name="card_background">#FFFFFF</color>
-    
-    <!-- Text Colors -->
-    <color name="text_primary">#1E293B</color>
-    <color name="text_secondary">#64748B</color>
-    <color name="text_hint">#94A3B8</color>
-    <color name="text_white">#FFFFFF</color>
-    
-    <!-- Status Colors -->
-    <color name="success">#10B981</color>
-    <color name="warning">#F59E0B</color>
-    <color name="error">#EF4444</color>
-    <color name="info">#3B82F6</color>
-    
-    <!-- Gradient Colors -->
-    <color name="gradient_start">#6366F1</color>
-    <color name="gradient_end">#8B5CF6</color>
+    <color name="surface_variant">#F0F0FA</color>
 
-    <!-- Launcher/Splash icon background (sampled from app logo) -->
+    <!-- Text Colors -->
+    <color name="text_primary">#1A1A2E</color>
+    <color name="text_secondary">#6B7394</color>
+    <color name="text_hint">#A0A8C4</color>
+    <color name="text_white">#FFFFFF</color>
+
+    <!-- Status Colors -->
+    <color name="success">#00C9A7</color>
+    <color name="warning">#FFB347</color>
+    <color name="error">#FF6B6B</color>
+    <color name="info">#4DA6FF</color>
+
+    <!-- Gradient Colors -->
+    <color name="gradient_start">#6C63FF</color>
+    <color name="gradient_end">#9D97FF</color>
+    <color name="gradient_blue_start">#4DA6FF</color>
+    <color name="gradient_blue_end">#7EC8E3</color>
+    <color name="gradient_green_start">#00C9A7</color>
+    <color name="gradient_green_end">#72F2C9</color>
+    <color name="gradient_orange_start">#FFB347</color>
+    <color name="gradient_orange_end">#FFCF87</color>
+
+    <!-- Launcher/Splash icon background -->
     <color name="launcher_icon_background">#96E6FF</color>
-    
+
     <!-- Legacy Support -->
-    <color name="purple_gradient_start">#6366F1</color>
-    <color name="purple_gradient_end">#8B5CF6</color>
-    <color name="blue_primary">#3B82F6</color>
-    <color name="blue_light">#DBEAFE</color>
-    <color name="light_blue_bg">#F8FAFC</color>
-    <color name="purple_card">#6366F1</color>
+    <color name="purple_gradient_start">#6C63FF</color>
+    <color name="purple_gradient_end">#9D97FF</color>
+    <color name="blue_primary">#4DA6FF</color>
+    <color name="blue_light">#E8F4FD</color>
+    <color name="light_blue_bg">#F8F9FE</color>
+    <color name="purple_card">#6C63FF</color>
     <color name="white">#FFFFFF</color>
-    <color name="text_gray">#6B7280</color>
-    <color name="text_dark">#1F2937</color>
-    <color name="black">#000000</color>
-    <color name="border_blue">#3B82F6</color>
-    <color name="light_green_bg">#ECFDF5</color>
-    
+    <color name="text_gray">#6B7394</color>
+    <color name="text_dark">#1A1A2E</color>
+    <color name="black">#1A1A2E</color>
+    <color name="border_blue">#4DA6FF</color>
+    <color name="light_green_bg">#F0FBF7</color>
+
     <!-- Elevation & Shadows -->
-    <color name="shadow_light">#1A000000</color>
-    <color name="shadow_medium">#33000000</color>
-    <color name="divider">#E5E7EB</color>
+    <color name="shadow_light">#0D000000</color>
+    <color name="shadow_medium">#1A6C63FF</color>
+    <color name="divider">#ECEDF5</color>
+
+    <!-- Bottom Nav Colors -->
+    <color name="nav_inactive">#A0A8C4</color>
+    <color name="nav_active">#6C63FF</color>
+    <color name="nav_background">#FFFFFF</color>
+
+    <!-- Card Accent Colors -->
+    <color name="card_purple">#6C63FF</color>
+    <color name="card_green">#00C9A7</color>
+    <color name="card_orange">#FFB347</color>
+    <color name="card_blue">#4DA6FF</color>
+    <color name="card_pink">#FF6B9D</color>
+    <color name="card_teal">#26D9C5</color>
+
+    <!-- Soft Card Backgrounds -->
+    <color name="card_purple_soft">#F0EFFF</color>
+    <color name="card_green_soft">#E6FAF5</color>
+    <color name="card_orange_soft">#FFF5E6</color>
+    <color name="card_blue_soft">#E8F4FD</color>
+    <color name="card_pink_soft">#FFE8EF</color>
+
+    <!-- Chat Colors -->
+    <color name="chat_bot_bg">#F0EFFF</color>
+    <color name="chat_user_bg">#6C63FF</color>
+    <color name="chat_user_text">#FFFFFF</color>
+
+    <!-- Test Card Colors -->
+    <color name="test_iq">#6C63FF</color>
+    <color name="test_personality">#FF6B9D</color>
+    <color name="test_eq">#FFB347</color>
+    <color name="test_memory">#00C9A7</color>
+    <color name="test_numerical">#4DA6FF</color>
+    <color name="test_space">#26D9C5</color>
+    <color name="test_mechanical">#8B5CF6</color>
+    <color name="test_abstract">#F97316</color>
 </resources>

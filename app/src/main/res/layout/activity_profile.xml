@@ -2,93 +2,92 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/bg_gradient_blue"
-    android:fitsSystemWindows="true">
+    android:background="@color/background"
+    android:orientation="vertical">
 
-    <!-- Header -->
+    <!-- Header Section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:gravity="center_vertical">
+        android:background="@drawable/bg_gradient_purple"
+        android:orientation="vertical"
+        android:padding="24dp">
 
         <ImageView
             android:id="@+id/btnBack"
             android:layout_width="32dp"
             android:layout_height="32dp"
+            android:layout_marginBottom="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Back"
+            android:padding="4dp"
             android:src="@drawable/ic_back"
-            android:tint="@color/white"
-            android:clickable="true"
-            android:focusable="true" />
+            app:tint="@android:color/white"
+            xmlns:app="http://schemas.android.com/apk/res-auto" />
 
-    </LinearLayout>
-
-    <!-- Profile Section -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="32dp"
-        android:gravity="center_vertical">
-
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/ic_profile"
-            android:background="@drawable/bg_chat_button"
-            android:padding="16dp"
-            android:layout_marginEnd="16dp" />
-
-        <TextView
-            android:id="@+id/userName"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hi\nAdmin"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:textColor="@color/black" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:background="@drawable/bg_chat_button"
+                android:contentDescription="Profile Avatar"
+                android:padding="14dp"
+                android:src="@drawable/ic_profile" />
+
+            <TextView
+                android:id="@+id/userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Hi\nAdmin"
+                android:textColor="@android:color/white"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
 
-    <!-- Menu Items -->
+    <!-- Menu Section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="vertical"
         android:background="@color/white"
-        android:paddingTop="32dp">
+        android:orientation="vertical"
+        android:paddingTop="24dp">
 
         <!-- Progress -->
         <LinearLayout
             android:id="@+id/menuProgress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="20dp"
-            android:gravity="center_vertical"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
-            android:background="?android:attr/selectableItemBackground">
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="18dp">
 
             <TextView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:text="📊"
-                android:textSize="28sp"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_icon_circle"
                 android:gravity="center"
-                android:layout_marginEnd="16dp" />
+                android:text="📊"
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:text="Progress"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/black" />
-
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- Downloads -->
@@ -96,65 +95,67 @@
             android:id="@+id/menuDownloads"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="20dp"
-            android:gravity="center_vertical"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
-            android:background="?android:attr/selectableItemBackground">
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="18dp">
 
             <TextView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:text="⬇️"
-                android:textSize="28sp"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_icon_circle"
                 android:gravity="center"
-                android:layout_marginEnd="16dp" />
+                android:text="⬇️"
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:text="Downloads"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/black" />
-
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
+        <!-- Divider -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/text_gray"
-            android:layout_marginHorizontal="20dp" />
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/divider" />
 
         <!-- Language -->
         <LinearLayout
             android:id="@+id/menuLanguage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="20dp"
-            android:gravity="center_vertical"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
-            android:background="?android:attr/selectableItemBackground">
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="18dp">
 
             <TextView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:text="🌐"
-                android:textSize="28sp"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_icon_circle"
                 android:gravity="center"
-                android:layout_marginEnd="16dp" />
+                android:text="🌐"
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:text="Language"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/black" />
-
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- Roadmap -->
@@ -162,29 +163,29 @@
             android:id="@+id/menuRoadmap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="20dp"
-            android:gravity="center_vertical"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
-            android:background="?android:attr/selectableItemBackground">
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="18dp">
 
             <TextView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:text="📍"
-                android:textSize="28sp"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_icon_circle"
                 android:gravity="center"
-                android:layout_marginEnd="16dp" />
+                android:text="📍"
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:text="Roadmap"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/black" />
-
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- Display -->
@@ -192,29 +193,29 @@
             android:id="@+id/menuDisplay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="20dp"
-            android:gravity="center_vertical"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
-            android:background="?android:attr/selectableItemBackground">
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="18dp">
 
             <TextView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:text="💻"
-                android:textSize="28sp"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_icon_circle"
                 android:gravity="center"
-                android:layout_marginEnd="16dp" />
+                android:text="💻"
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:text="Display"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/black" />
-
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <!-- Logout -->
@@ -222,32 +223,31 @@
             android:id="@+id/menuLogout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="20dp"
-            android:gravity="center_vertical"
+            android:layout_marginTop="24dp"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
-            android:background="?android:attr/selectableItemBackground"
-            android:layout_marginTop="32dp">
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="18dp">
 
             <TextView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:text="🚪"
-                android:textSize="28sp"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_icon_circle"
                 android:gravity="center"
-                android:layout_marginEnd="16dp" />
+                android:text="🚪"
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:text="Logout"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/black" />
-
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </LinearLayout>
-
     </LinearLayout>
 
 </LinearLayout>

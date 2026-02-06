@@ -1,51 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/background"
+    android:orientation="vertical">
 
     <!-- Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_gradient_purple"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="16dp"
-        android:background="@color/purple_card"
-        android:gravity="center_vertical">
+        android:padding="16dp">
 
         <ImageView
             android:id="@+id/btnBack"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:src="@drawable/ic_back"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:padding="6dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_marginEnd="12dp" />
+            android:contentDescription="Back"
+            android:padding="4dp"
+            android:src="@drawable/ic_back"
+            app:tint="@android:color/white" />
 
         <TextView
             android:id="@+id/testTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
             android:layout_weight="1"
-            android:text="IQ Test"
+            android:text="Test"
+            android:textColor="@android:color/white"
             android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@color/white" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/questionCounter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1/10"
+            android:textColor="@android:color/white"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/white" />
-
+            android:textStyle="bold" />
     </LinearLayout>
 
+    <!-- Question & Options -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -56,38 +57,38 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="24dp">
 
-            <!-- Question -->
             <TextView
                 android:id="@+id/questionText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="What is 2 + 2?"
+                android:layout_marginBottom="28dp"
+                android:text="Question text goes here"
+                android:textColor="@color/text_primary"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginBottom="32dp" />
+                android:textStyle="bold" />
 
             <!-- Option A -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/optionA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="14dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
 
                 <TextView
                     android:id="@+id/optionAText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="A. 3"
-                    android:textSize="18sp"
-                    android:textColor="@color/text_dark"
-                    android:padding="20dp" />
-
+                    android:padding="18dp"
+                    android:text="Option A"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp" />
             </androidx.cardview.widget.CardView>
 
             <!-- Option B -->
@@ -95,20 +96,21 @@
                 android:id="@+id/optionB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="14dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
 
                 <TextView
                     android:id="@+id/optionBText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="B. 4"
-                    android:textSize="18sp"
-                    android:textColor="@color/text_dark"
-                    android:padding="20dp" />
-
+                    android:padding="18dp"
+                    android:text="Option B"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp" />
             </androidx.cardview.widget.CardView>
 
             <!-- Option C -->
@@ -116,20 +118,21 @@
                 android:id="@+id/optionC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="14dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
 
                 <TextView
                     android:id="@+id/optionCText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="C. 5"
-                    android:textSize="18sp"
-                    android:textColor="@color/text_dark"
-                    android:padding="20dp" />
-
+                    android:padding="18dp"
+                    android:text="Option C"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp" />
             </androidx.cardview.widget.CardView>
 
             <!-- Option D -->
@@ -137,24 +140,23 @@
                 android:id="@+id/optionD"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="32dp"
+                android:layout_marginBottom="14dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
 
                 <TextView
                     android:id="@+id/optionDText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="D. 6"
-                    android:textSize="18sp"
-                    android:textColor="@color/text_dark"
-                    android:padding="20dp" />
-
+                    android:padding="18dp"
+                    android:text="Option D"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp" />
             </androidx.cardview.widget.CardView>
-
         </LinearLayout>
-
     </ScrollView>
 
     <!-- Next Button -->
@@ -162,11 +164,12 @@
         android:id="@+id/btnNext"
         android:layout_width="match_parent"
         android:layout_height="56dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/bg_button_gradient"
         android:text="Next"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:background="@color/purple_card"
-        android:layout_margin="16dp" />
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="17sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

@@ -154,7 +154,7 @@ public class HomeActivity extends AppCompatActivity {
         );
         
         navProfile.setOnClickListener(v -> 
-            startActivity(new Intent(this, ProfileActivity.class))
+            drawerLayout.openDrawer(GravityCompat.START)
         );
     }
     

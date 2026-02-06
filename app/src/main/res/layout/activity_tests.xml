@@ -1,544 +1,544 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img_login_background"
-    android:fitsSystemWindows="true">
+    android:background="@color/background">
 
+    <!-- Header -->
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:paddingStart="16dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="12dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Back"
+            android:padding="8dp"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="12dp"
+            android:layout_toEndOf="@id/btnBack"
+            android:text="📝 Tests"
+            android:textColor="@color/text_primary"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Bottom Navigation -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="20dp"
+        app:cardBackgroundColor="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:weightSum="4"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <LinearLayout
+                android:id="@+id/navHome"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_home"
+                    android:contentDescription="Home"
+                    app:tint="@color/text_secondary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/navFiles"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_files"
+                    android:contentDescription="Tests"
+                    app:tint="@color/text_secondary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/navBooks"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_books"
+                    android:contentDescription="Reference"
+                    app:tint="@color/text_secondary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/navProfile"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_profile"
+                    android:contentDescription="Profile"
+                    app:tint="@color/text_secondary" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Scrollable Test Cards -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bottomNav"
-        android:fillViewport="true">
+        android:layout_below="@id/header"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="12dp"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/spacing_medium">
+            android:orientation="vertical">
 
-            <!-- Header with Back Button -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginBottom="@dimen/spacing_large">
-
-                <ImageView
-                    android:id="@+id/btnBack"
-                    android:layout_width="@dimen/icon_large"
-                    android:layout_height="@dimen/icon_large"
-                    android:src="@drawable/ic_back"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:padding="@dimen/spacing_small"
-                    android:clickable="true"
-                    android:focusable="true" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="📝 Tests"
-                    android:textSize="@dimen/text_xxlarge"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginStart="@dimen/spacing_medium" />
-
-            </LinearLayout>
-
-            <!-- IQ Test -->
+            <!-- IQ Test Card -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardIQTest"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginBottom="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:layout_height="100dp"
+                android:layout_marginBottom="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:id="@+id/layoutIQTest"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/test_iq"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:background="@color/purple_card"
-                    android:padding="@dimen/spacing_medium">
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp">
 
                     <TextView
-                        android:layout_width="@dimen/icon_xlarge"
-                        android:layout_height="@dimen/icon_xlarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="🧠"
-                        android:textSize="40sp"
-                        android:gravity="center"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="@dimen/spacing_medium" />
+                        android:textSize="36sp" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
                         android:layout_weight="1"
                         android:text="IQ Test"
-                        android:textSize="@dimen/text_large"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tvIQStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"
-                        android:textSize="@dimen/text_xlarge"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
-
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
 
-            <!-- Personality Assessment -->
+            <!-- Personality Test Card -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardPersonalityTest"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginBottom="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:layout_height="100dp"
+                android:layout_marginBottom="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:id="@+id/layoutPersonalityTest"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/test_personality"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:background="@color/purple_card"
-                    android:padding="@dimen/spacing_medium">
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp">
 
                     <TextView
-                        android:layout_width="@dimen/icon_xlarge"
-                        android:layout_height="@dimen/icon_xlarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="🎭"
-                        android:textSize="40sp"
-                        android:gravity="center"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="@dimen/spacing_medium" />
+                        android:textSize="36sp" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
                         android:layout_weight="1"
-                        android:text="Personality\nAssessment"
-                        android:textSize="@dimen/text_large"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:text="Personality Test"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tvPersonalityStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"
-                        android:textSize="@dimen/text_xlarge"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
-
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
 
-            <!-- EQ Test -->
+            <!-- EQ Test Card -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardEQTest"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginBottom="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:layout_height="100dp"
+                android:layout_marginBottom="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:id="@+id/layoutEQTest"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/test_eq"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:background="@color/purple_card"
-                    android:padding="@dimen/spacing_medium">
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp">
 
                     <TextView
-                        android:layout_width="@dimen/icon_xlarge"
-                        android:layout_height="@dimen/icon_xlarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="💛"
-                        android:textSize="40sp"
-                        android:gravity="center"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="@dimen/spacing_medium" />
+                        android:textSize="36sp" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
                         android:layout_weight="1"
                         android:text="EQ Test"
-                        android:textSize="@dimen/text_large"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tvEQStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"
-                        android:textSize="@dimen/text_xlarge"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
-
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
 
-            <!-- Memory Test -->
+            <!-- Memory Test Card -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardMemoryTest"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginBottom="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:layout_height="100dp"
+                android:layout_marginBottom="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:id="@+id/layoutMemoryTest"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/test_memory"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:background="@color/purple_card"
-                    android:padding="@dimen/spacing_medium">
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp">
 
                     <TextView
-                        android:layout_width="@dimen/icon_xlarge"
-                        android:layout_height="@dimen/icon_xlarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="🧠"
-                        android:textSize="40sp"
-                        android:gravity="center"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="@dimen/spacing_medium" />
+                        android:textSize="36sp" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
                         android:layout_weight="1"
                         android:text="Memory Test"
-                        android:textSize="@dimen/text_large"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tvMemoryStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"
-                        android:textSize="@dimen/text_xlarge"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
-
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
 
-            <!-- Numerical Ability -->
+            <!-- Numerical Test Card -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardNumericalTest"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginBottom="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:layout_height="100dp"
+                android:layout_marginBottom="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:id="@+id/layoutNumericalTest"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/test_numerical"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:background="@color/purple_card"
-                    android:padding="@dimen/spacing_medium">
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp">
 
                     <TextView
-                        android:layout_width="@dimen/icon_xlarge"
-                        android:layout_height="@dimen/icon_xlarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="🔢"
-                        android:textSize="40sp"
-                        android:gravity="center"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="@dimen/spacing_medium" />
+                        android:textSize="36sp" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
                         android:layout_weight="1"
-                        android:text="Numerical Ability"
-                        android:textSize="@dimen/text_large"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:text="Numerical Test"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tvNumericalStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/15"
-                        android:textSize="@dimen/text_xlarge"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
-
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
 
-            <!-- Space Relations -->
+            <!-- Space Relations Test Card -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardSpaceRelationsTest"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginBottom="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:layout_height="100dp"
+                android:layout_marginBottom="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:id="@+id/layoutSpaceRelationsTest"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/test_space"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:background="@color/purple_card"
-                    android:padding="@dimen/spacing_medium">
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp">
 
                     <TextView
-                        android:layout_width="@dimen/icon_xlarge"
-                        android:layout_height="@dimen/icon_xlarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="🧭"
-                        android:textSize="40sp"
-                        android:gravity="center"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="@dimen/spacing_medium" />
+                        android:textSize="36sp" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
                         android:layout_weight="1"
                         android:text="Space Relations"
-                        android:textSize="@dimen/text_large"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tvSpaceRelationsStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"
-                        android:textSize="@dimen/text_xlarge"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
-
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
 
-            <!-- Mechanical Reasoning -->
+            <!-- Mechanical Test Card -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardMechanicalTest"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginBottom="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:layout_height="100dp"
+                android:layout_marginBottom="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:id="@+id/layoutMechanicalTest"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/test_mechanical"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:background="@color/purple_card"
-                    android:padding="@dimen/spacing_medium">
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp">
 
                     <TextView
-                        android:layout_width="@dimen/icon_xlarge"
-                        android:layout_height="@dimen/icon_xlarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="⚙️"
-                        android:textSize="40sp"
-                        android:gravity="center"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="@dimen/spacing_medium" />
+                        android:textSize="36sp" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
                         android:layout_weight="1"
-                        android:text="Mechanical Reasoning"
-                        android:textSize="@dimen/text_large"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:text="Mechanical Test"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tvMechanicalStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"
-                        android:textSize="@dimen/text_xlarge"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
-
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
 
-            <!-- Abstract Reasoning -->
+            <!-- Abstract Test Card -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardAbstractTest"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginBottom="80dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
+                android:layout_height="100dp"
+                android:layout_marginBottom="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:id="@+id/layoutAbstractTest"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/test_abstract"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:background="@color/purple_card"
-                    android:padding="@dimen/spacing_medium">
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp">
 
                     <TextView
-                        android:layout_width="@dimen/icon_xlarge"
-                        android:layout_height="@dimen/icon_xlarge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="🧩"
-                        android:textSize="40sp"
-                        android:gravity="center"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="@dimen/spacing_medium" />
+                        android:textSize="36sp" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
                         android:layout_weight="1"
-                        android:text="Abstract Reasoning"
-                        android:textSize="@dimen/text_large"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:text="Abstract Test"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tvAbstractStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"
-                        android:textSize="@dimen/text_xlarge"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
-
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
-
     </ScrollView>
-
-    <!-- Bottom Navigation -->
-    <LinearLayout
-        android:id="@+id/bottomNav"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:background="@color/white"
-        android:elevation="8dp"
-        android:weightSum="4">
-
-        <LinearLayout
-            android:id="@+id/navHome"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_home" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/navFiles"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_files"
-                android:tint="@color/blue_primary" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/navBooks"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_books" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/navProfile"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_profile" />
-
-        </LinearLayout>
-
-    </LinearLayout>
 
 </RelativeLayout>

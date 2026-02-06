@@ -17,7 +17,7 @@
         android:theme="@style/Theme.Navik">
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/Theme.Navik.Splash"
+            android:theme="@style/Theme.Navik.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

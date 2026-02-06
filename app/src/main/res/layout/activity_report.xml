@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_green_bg">
+    android:background="@color/background">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bottomNav"
-        android:fillViewport="true">
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,15 +23,17 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/btnBack"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:src="@drawable/ic_back"
-                    android:clickable="true"
-                    android:focusable="true" />
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Back" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -39,252 +42,216 @@
                     android:text="📊 Analysis Report"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_primary"
                     android:gravity="center" />
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/appicon"
-                    android:scaleType="fitCenter"
                     android:contentDescription="Navik Logo" />
-
             </LinearLayout>
 
-            <!-- Personal Details -->
-            <LinearLayout
+            <!-- Personal Details Card -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@drawable/bg_section"
-                android:padding="12dp"
-                android:layout_marginBottom="12dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Personal Details :"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:background="@color/white"
-                    android:padding="4dp"
-                    android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Name : XYZ"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_dark" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Date of Birth :\ndd/mm/yyyy"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_dark"
-                            android:layout_marginTop="4dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Contact No: XXXXXXXXX844"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_dark"
-                            android:layout_marginTop="4dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Address :    XYZ"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_dark"
-                            android:layout_marginTop="4dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Email:        xyz@gmail.com"
-                            android:textSize="12sp"
-                            android:textColor="@color/blue_primary"
-                            android:layout_marginTop="4dp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="end">
+                        android:text="Personal Details"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/primary"
+                        android:layout_marginBottom="12dp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Date : dd/mm/yyyy"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_dark" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name: _______________"
+                        android:textSize="13sp"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginBottom="6dp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Gender : M/F/O"
-                            android:textSize="12sp"
-                            android:textColor="@color/text_dark"
-                            android:layout_marginTop="4dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date of Birth: _______________"
+                        android:textSize="13sp"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginBottom="6dp" />
 
-                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Contact: _______________"
+                        android:textSize="13sp"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginBottom="6dp" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Address: _______________"
+                        android:textSize="13sp"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginBottom="6dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email: _______________"
+                        android:textSize="13sp"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginBottom="6dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date: _______________"
+                        android:textSize="13sp"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginBottom="6dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Gender: _______________"
+                        android:textSize="13sp"
+                        android:textColor="@color/text_secondary" />
                 </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-            </LinearLayout>
-
-            <!-- Academic Details -->
-            <LinearLayout
+            <!-- Academic Details Card -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@drawable/bg_section"
-                android:padding="12dp"
-                android:layout_marginBottom="12dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Academic Details :"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:background="@color/white"
-                    android:padding="4dp"
-                    android:layout_marginBottom="8dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Educational Board : C.B.S.E"
-                    android:textSize="12sp"
-                    android:textColor="@color/text_dark" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Subjects :                X,Y,Z"
-                    android:textSize="12sp"
-                    android:textColor="@color/text_dark"
-                    android:layout_marginTop="4dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="School / College :    ABC INTERNATIONAL SCHOOL"
-                    android:textSize="12sp"
-                    android:textColor="@color/text_dark"
-                    android:layout_marginTop="4dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Academic achievement :"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/text_dark"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <TextView
-                        android:layout_width="60dp"
-                        android:layout_height="30dp"
-                        android:text="7th"
-                        android:gravity="center"
-                        android:background="@drawable/bg_grade_box"
-                        android:textSize="12sp"
-                        android:layout_marginEnd="8dp" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Academic Details"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/primary"
+                        android:layout_marginBottom="12dp" />
 
                     <TextView
-                        android:layout_width="60dp"
-                        android:layout_height="30dp"
-                        android:text="8th"
-                        android:gravity="center"
-                        android:background="@drawable/bg_grade_box"
-                        android:textSize="12sp"
-                        android:layout_marginEnd="8dp" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Board: _______________"
+                        android:textSize="13sp"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginBottom="6dp" />
 
                     <TextView
-                        android:layout_width="60dp"
-                        android:layout_height="30dp"
-                        android:text="9th"
-                        android:gravity="center"
-                        android:background="@drawable/bg_grade_box"
-                        android:textSize="12sp"
-                        android:layout_marginEnd="8dp" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Subjects: _______________"
+                        android:textSize="13sp"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginBottom="6dp" />
 
                     <TextView
-                        android:layout_width="60dp"
-                        android:layout_height="30dp"
-                        android:text="10th"
-                        android:gravity="center"
-                        android:background="@drawable/bg_grade_box"
-                        android:textSize="12sp"
-                        android:layout_marginEnd="8dp" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="School: _______________"
+                        android:textSize="13sp"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginBottom="12dp" />
 
-                    <TextView
-                        android:layout_width="60dp"
-                        android:layout_height="30dp"
-                        android:text="11th"
-                        android:gravity="center"
-                        android:background="@drawable/bg_grade_box"
-                        android:textSize="12sp" />
+                    <!-- Grade Boxes Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
 
+                        <TextView
+                            android:layout_width="56dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_grade_box"
+                            android:gravity="center"
+                            android:text="A+"
+                            android:textSize="12sp"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="56dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_grade_box"
+                            android:gravity="center"
+                            android:text="A"
+                            android:textSize="12sp"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="56dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_grade_box"
+                            android:gravity="center"
+                            android:text="B+"
+                            android:textSize="12sp"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="56dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_grade_box"
+                            android:gravity="center"
+                            android:text="B"
+                            android:textSize="12sp"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="56dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_grade_box"
+                            android:gravity="center"
+                            android:text="C"
+                            android:textSize="12sp" />
+                    </LinearLayout>
                 </LinearLayout>
-
-                <TextView
-                    android:layout_width="60dp"
-                    android:layout_height="30dp"
-                    android:text="12th"
-                    android:gravity="center"
-                    android:background="@drawable/bg_grade_box"
-                    android:textSize="12sp"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="8dp" />
-
-            </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
             <!-- Test Scores Section -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Your scores on different psychological tests :"
-                android:textSize="14sp"
+                android:text="Your scores on different psychological tests"
+                android:textSize="15sp"
                 android:textStyle="bold"
-                android:textColor="@color/text_dark"
-                android:layout_marginVertical="12dp" />
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="8dp" />
 
             <!-- Aptitude Test -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="• Aptitude Test"
-                android:textSize="13sp"
+                android:text="📝 Aptitude Test"
+                android:textSize="14sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/primary"
                 android:layout_marginBottom="8dp" />
 
             <ImageView
@@ -292,24 +259,17 @@
                 android:layout_height="200dp"
                 android:src="@drawable/ic_launcher_foreground"
                 android:scaleType="fitCenter"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="16dp"
+                android:contentDescription="Aptitude Test Chart" />
 
+            <!-- Intellectual Ability -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="*Percentiles refers to the percentage of people from your age group that scored lower than you."
-                android:textSize="10sp"
-                android:textColor="@color/text_gray"
-                android:layout_marginBottom="16dp" />
-
-            <!-- IQ Test -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="• Intellectual Ability :"
-                android:textSize="13sp"
+                android:text="🧠 Intellectual Ability"
+                android:textSize="14sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/secondary"
                 android:layout_marginBottom="8dp" />
 
             <ImageView
@@ -317,16 +277,17 @@
                 android:layout_height="200dp"
                 android:src="@drawable/ic_launcher_foreground"
                 android:scaleType="fitCenter"
-                android:layout_marginBottom="16dp" />
+                android:layout_marginBottom="16dp"
+                android:contentDescription="Intellectual Ability Chart" />
 
-            <!-- Memory Test -->
+            <!-- Memory Concentration Test -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="• Memory Concentration Test :"
-                android:textSize="13sp"
+                android:text="🎯 Memory Concentration Test"
+                android:textSize="14sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/accent"
                 android:layout_marginBottom="8dp" />
 
             <ImageView
@@ -334,91 +295,116 @@
                 android:layout_height="200dp"
                 android:src="@drawable/ic_launcher_foreground"
                 android:scaleType="fitCenter"
-                android:layout_marginBottom="80dp" />
+                android:layout_marginBottom="80dp"
+                android:contentDescription="Memory Concentration Test Chart" />
 
         </LinearLayout>
-
     </ScrollView>
 
     <!-- Bottom Navigation -->
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="68dp"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:background="@color/white"
-        android:elevation="8dp"
-        android:weightSum="4">
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="20dp"
+        app:cardBackgroundColor="@android:color/white">
 
         <LinearLayout
-            android:id="@+id/navHome"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:weightSum="4"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
 
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_home" />
+            <LinearLayout
+                android:id="@+id/navHome"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_home"
+                    android:contentDescription="Home"
+                    app:tint="@color/text_secondary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/navFiles"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_files"
+                    android:contentDescription="Tests"
+                    app:tint="@color/text_secondary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/navBooks"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_books"
+                    android:contentDescription="Reference"
+                    app:tint="@color/text_secondary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/navProfile"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_profile"
+                    android:contentDescription="Profile"
+                    app:tint="@color/text_secondary" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/navFiles"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_files" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/navBooks"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_books" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/navProfile"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_profile" />
-
-        </LinearLayout>
-
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
