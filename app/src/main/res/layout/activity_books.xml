@@ -799,7 +799,7 @@
     </FrameLayout>
 
     <!-- Bottom Navigation -->
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="68dp"

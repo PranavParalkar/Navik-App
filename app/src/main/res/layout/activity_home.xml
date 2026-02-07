@@ -474,8 +474,6 @@
 
             </LinearLayout>
 
-        </ScrollView>
-
     <!-- Floating Chat Button -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/chatButton"

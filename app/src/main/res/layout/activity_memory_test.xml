@@ -17,8 +17,7 @@
         android:paddingEnd="16dp"
         android:paddingTop="40dp"
         android:paddingBottom="16dp"
-        android:background="@color/purple_card"
-        android:gravity="center_vertical">
+        >
 
         <ImageView
             android:id="@+id/btnBack"

@@ -18,7 +18,6 @@
         android:background="@color/white"
         android:elevation="4dp"
         android:gravity="center_vertical"
-        android:orientation="horizontal"
         android:padding="16dp">
 
         <ImageView
@@ -40,15 +39,15 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- Bottom Navigation -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/bottomNav"
+    <!-- Chat messages -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/header"
         android:layout_above="@id/inputContainer"
-        android:padding="8dp"
-        android:clipToPadding="false" />
+        android:clipToPadding="false"
+        android:padding="8dp" />
 
     <!-- Bottom Navigation Bar -->
     <androidx.cardview.widget.CardView
