@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="14dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <!-- Student avatar -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="2dp"
+            android:layout_marginEnd="14dp">
+
+            <ImageView
+                android:id="@+id/studentImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_profile"
+                android:background="@color/blue_light"
+                android:padding="12dp"
+                android:contentDescription="Student photo" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Student info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/studentName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="3dp" />
+
+            <TextView
+                android:id="@+id/studentInterest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="@color/primary"
+                android:layout_marginBottom="3dp" />
+
+            <TextView
+                android:id="@+id/studentEducation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/text_secondary"
+                android:layout_marginBottom="3dp" />
+
+            <TextView
+                android:id="@+id/studentLookingFor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/text_hint"
+                android:drawablePadding="4dp" />
+        </LinearLayout>
+
+        <!-- Connect button -->
+        <Button
+            android:id="@+id/btnConnect"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_button_blue"
+            android:text="Connect"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:paddingHorizontal="16dp"
+            android:textAllCaps="false"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

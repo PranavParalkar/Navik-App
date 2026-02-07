@@ -10,9 +10,14 @@ public class MentorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        // Redirect to the new mentor mode selection activity
-        Intent intent = new Intent(this, MentorModeSelectionActivity.class);
-        startActivity(intent);
+        // Route based on user role
+        if (UserRoleManager.isMentor(this)) {
+            // Mentors go directly to their dashboard showing students
+            startActivity(new Intent(this, MentorDashboardActivity.class));
+        } else {
+            // Regular users go straight to browsing mentors
+            startActivity(new Intent(this, BrowseMentorsActivity.class));
+        }
         finish();
     }
 }
