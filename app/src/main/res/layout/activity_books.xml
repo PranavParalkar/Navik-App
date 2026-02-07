@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img_login_background"
-    android:fitsSystemWindows="true">
+    android:background="@color/background">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,7 +15,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="40dp"
+            android:paddingBottom="20dp">
 
             <!-- Header with Back Button -->
             <LinearLayout

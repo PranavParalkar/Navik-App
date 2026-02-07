@@ -129,7 +129,7 @@
                     <ImageView
                         android:layout_width="@dimen/icon_medium"
                         android:layout_height="@dimen/icon_medium"
-                        android:src="@drawable/ic_mentor_community"
+                        android:src="@drawable/ic_mentor_community_"
                         android:layout_marginTop="@dimen/spacing_tiny" />
 
                 </LinearLayout>
@@ -159,7 +159,7 @@
                     <ImageView
                         android:layout_width="@dimen/icon_medium"
                         android:layout_height="@dimen/icon_medium"
-                        android:src="@drawable/ic_reports"
+                        android:src="@drawable/ic_report"
                         android:layout_marginTop="@dimen/spacing_tiny" />
 
                 </LinearLayout>
@@ -189,7 +189,7 @@
                     <ImageView
                         android:layout_width="@dimen/icon_medium"
                         android:layout_height="@dimen/icon_medium"
-                        android:src="@drawable/ic_roadmap"
+                        android:src="@drawable/ic_roadmap_new"
                         android:layout_marginTop="@dimen/spacing_tiny" />
 
                 </LinearLayout>
@@ -409,13 +409,10 @@
 </RelativeLayout>
 
 <!-- Navigation Drawer -->
-<com.google.android.material.navigation.NavigationView
-    android:id="@+id/navigationView"
-    android:layout_width="@dimen/drawer_width"
+<include
+    layout="@layout/layout_drawer"
+    android:layout_width="280dp"
     android:layout_height="match_parent"
-    android:layout_gravity="start"
-    android:background="@color/light_blue_bg"
-    app:headerLayout="@layout/nav_header"
-    app:menu="@menu/drawer_menu" />
+    android:layout_gravity="start" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

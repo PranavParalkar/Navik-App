@@ -3,6 +3,7 @@ package com.example.navik;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,6 +20,8 @@ public class TestsActivity extends AppCompatActivity {
 
     private View layoutIQTest, layoutPersonalityTest, layoutEQTest, layoutMemoryTest, layoutNumericalTest, layoutSpaceRelationsTest, layoutMechanicalTest, layoutAbstractTest;
     private TextView tvIQStatus, tvPersonalityStatus, tvEQStatus, tvMemoryStatus, tvNumericalStatus, tvSpaceRelationsStatus, tvMechanicalStatus, tvAbstractStatus;
+    private TextView tvProgressSummary, tvProgressPercent;
+    private View progressBarFill;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,36 +74,63 @@ public class TestsActivity extends AppCompatActivity {
         navFiles = findViewById(R.id.navFiles);
         navSkills = findViewById(R.id.navSkills);
         navCareer = findViewById(R.id.navCareer);
+
+        tvProgressSummary = findViewById(R.id.tvProgressSummary);
+        tvProgressPercent = findViewById(R.id.tvProgressPercent);
+        progressBarFill = findViewById(R.id.progressBarFill);
         
         btnBack.setOnClickListener(v -> finish());
     }
 
     private void updateCompletionUi() {
-        updateSingleTestUi(TestProgressManager.TEST_IQ, layoutIQTest, tvIQStatus, "0/10");
-        updateSingleTestUi(TestProgressManager.TEST_PERSONALITY, layoutPersonalityTest, tvPersonalityStatus, "0/10");
-        updateSingleTestUi(TestProgressManager.TEST_EQ, layoutEQTest, tvEQStatus, "0/10");
-        updateSingleTestUi(TestProgressManager.TEST_MEMORY, layoutMemoryTest, tvMemoryStatus, "0/10");
-        updateSingleTestUi(TestProgressManager.TEST_NUMERICAL, layoutNumericalTest, tvNumericalStatus, "0/15");
-        updateSingleTestUi(TestProgressManager.TEST_SPACE_RELATIONS, layoutSpaceRelationsTest, tvSpaceRelationsStatus, "0/10");
-        updateSingleTestUi(TestProgressManager.TEST_MECHANICAL, layoutMechanicalTest, tvMechanicalStatus, "0/10");
-        updateSingleTestUi(TestProgressManager.TEST_ABSTRACT, layoutAbstractTest, tvAbstractStatus, "0/10");
+        int completed = 0;
+        completed += updateSingleTestUi(TestProgressManager.TEST_IQ, layoutIQTest, tvIQStatus, "0/10", R.drawable.bg_skill_card_purple);
+        completed += updateSingleTestUi(TestProgressManager.TEST_PERSONALITY, layoutPersonalityTest, tvPersonalityStatus, "0/10", R.drawable.bg_skill_card_purple);
+        completed += updateSingleTestUi(TestProgressManager.TEST_EQ, layoutEQTest, tvEQStatus, "0/10", R.drawable.bg_skill_card_purple);
+        completed += updateSingleTestUi(TestProgressManager.TEST_MEMORY, layoutMemoryTest, tvMemoryStatus, "0/10", R.drawable.bg_skill_card_purple);
+        completed += updateSingleTestUi(TestProgressManager.TEST_NUMERICAL, layoutNumericalTest, tvNumericalStatus, "0/15", R.drawable.bg_skill_card_purple);
+        completed += updateSingleTestUi(TestProgressManager.TEST_SPACE_RELATIONS, layoutSpaceRelationsTest, tvSpaceRelationsStatus, "0/10", R.drawable.bg_skill_card_purple);
+        completed += updateSingleTestUi(TestProgressManager.TEST_MECHANICAL, layoutMechanicalTest, tvMechanicalStatus, "0/10", R.drawable.bg_skill_card_purple);
+        completed += updateSingleTestUi(TestProgressManager.TEST_ABSTRACT, layoutAbstractTest, tvAbstractStatus, "0/10", R.drawable.bg_skill_card_purple);
+
+        // Update progress summary
+        if (tvProgressSummary != null) {
+            tvProgressSummary.setText(completed + " of 8 tests completed");
+        }
+        if (tvProgressPercent != null) {
+            int pct = (completed * 100) / 8;
+            tvProgressPercent.setText(pct + "%");
+        }
+        final int completedCount = completed;
+        if (progressBarFill != null) {
+            progressBarFill.post(() -> {
+                View parent = (View) progressBarFill.getParent();
+                int parentWidth = parent.getWidth();
+                int fillWidth = (parentWidth * completedCount) / 8;
+                ViewGroup.LayoutParams params = progressBarFill.getLayoutParams();
+                params.width = fillWidth;
+                progressBarFill.setLayoutParams(params);
+            });
+        }
     }
 
-    private void updateSingleTestUi(String testName, View backgroundContainer, TextView statusView, String defaultText) {
+    private int updateSingleTestUi(String testName, View backgroundContainer, TextView statusView, String defaultText, int gradientResId) {
         if (backgroundContainer == null || statusView == null) {
-            return;
+            return 0;
         }
 
         boolean isCompleted = TestProgressManager.isCompleted(this, testName);
 
         if (isCompleted) {
-            backgroundContainer.setBackgroundColor(ContextCompat.getColor(this, R.color.success));
-            statusView.setText("Completed ✓");
+            backgroundContainer.setBackgroundResource(R.drawable.bg_test_completed);
+            statusView.setText("✓ Done");
             statusView.setTextColor(ContextCompat.getColor(this, R.color.white));
+            return 1;
         } else {
-            backgroundContainer.setBackgroundColor(ContextCompat.getColor(this, R.color.purple_card));
+            backgroundContainer.setBackgroundResource(gradientResId);
             statusView.setText(defaultText);
             statusView.setTextColor(ContextCompat.getColor(this, R.color.white));
+            return 0;
         }
     }
     

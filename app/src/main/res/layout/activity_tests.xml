@@ -3,40 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img_login_background"
-    android:fitsSystemWindows="true">
+    android:background="@color/background">
 
     <!-- Header -->
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:paddingStart="16dp"
+        android:layout_marginTop="32dp"
+        android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:paddingTop="16dp"
-        android:paddingBottom="12dp">
+        android:paddingBottom="16dp">
 
         <ImageView
             android:id="@+id/btnBack"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:layout_centerVertical="true"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_back"
             android:contentDescription="Back"
-            android:padding="8dp"
-            android:src="@drawable/ic_back" />
+            android:padding="6dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="12dp"
-            android:layout_toEndOf="@id/btnBack"
-            android:text="📝 Tests"
+            android:layout_centerInParent="true"
+            android:text="Tests"
             android:textColor="@color/text_primary"
-            android:textSize="28sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
+
     </RelativeLayout>
 
     <!-- Bottom Navigation -->
@@ -145,55 +142,137 @@
 
     </androidx.cardview.widget.CardView>
 
-    <!-- Scrollable Test Cards -->
+    <!-- Scrollable Content -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/header"
         android:layout_above="@id/bottomNav"
-        android:fillViewport="true">
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/spacing_medium">
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="20dp">
 
-            <!-- Header with Back Button -->
-            <LinearLayout
+            <!-- Page Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Assess Your Skills 📝"
+                android:textColor="@color/text_primary"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Track your progress across cognitive tests"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:layout_marginBottom="20dp" />
+
+            <!-- Progress Summary Card -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginBottom="@dimen/spacing_large">
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/surface"
+                android:layout_marginBottom="24dp">
 
-                <ImageView
-                    android:id="@+id/btnBack"
-                    android:layout_width="@dimen/icon_large"
-                    android:layout_height="@dimen/icon_large"
-                    android:src="@drawable/ic_back"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:padding="@dimen/spacing_small"
-                    android:clickable="true"
-                    android:focusable="true" />
-
-                <TextView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="📝 Tests"
-                    android:textSize="@dimen/text_xxlarge"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginStart="@dimen/spacing_medium" />
+                    android:orientation="vertical"
+                    android:padding="18dp">
 
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Your Progress"
+                                android:textColor="@color/text_primary"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvProgressSummary"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0 of 8 tests completed"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="13sp"
+                                android:layout_marginTop="2dp" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvProgressPercent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0%"
+                            android:textColor="@color/primary"
+                            android:textSize="28sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!-- Progress Bar -->
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"
+                        android:background="@drawable/bg_progress_bar_track">
+
+                        <View
+                            android:id="@+id/progressBarFill"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_progress_bar_fill" />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Section Header -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Available Tests"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="14dp" />
 
             <!-- IQ Test -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardIQTest"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginBottom="16dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                android:layout_marginBottom="12dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground">
@@ -201,39 +280,65 @@
                 <LinearLayout
                     android:id="@+id/layoutIQTest"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_skill_card_purple"
                     android:orientation="horizontal"
-                    android:background="@color/purple_card"
-                    android:padding="@dimen/spacing_medium">
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:minHeight="88dp">
 
-                    <TextView
-                        android:layout_width="@dimen/icon_xlarge"
-                        android:layout_height="@dimen/icon_xlarge"
-                        android:text="🧠"
-                        android:textSize="40sp"
-                        android:gravity="center"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="@dimen/spacing_medium" />
+                    <FrameLayout
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:background="@drawable/bg_emoji_circle"
+                        android:layout_marginEnd="14dp">
 
-                    <TextView
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="🧠"
+                            android:textSize="26sp" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="IQ Test"
-                        android:textSize="@dimen/text_large"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="IQ Test"
+                            android:textColor="@color/white"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Test your logical thinking"
+                            android:textColor="#BBFFFFFF"
+                            android:textSize="12sp"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/tvIQStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"
-                        android:textSize="@dimen/text_xlarge"
-                        android:textStyle="bold"
                         android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_status_badge"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp" />
 
                 </LinearLayout>
 
@@ -243,8 +348,11 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardPersonalityTest"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginBottom="16dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                android:layout_marginBottom="12dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground">
@@ -252,39 +360,65 @@
                 <LinearLayout
                     android:id="@+id/layoutPersonalityTest"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_skill_card_purple"
                     android:orientation="horizontal"
-                    android:background="@color/purple_card"
-                    android:padding="@dimen/spacing_medium">
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:minHeight="88dp">
 
-                    <TextView
-                        android:layout_width="@dimen/icon_xlarge"
-                        android:layout_height="@dimen/icon_xlarge"
-                        android:text="🎭"
-                        android:textSize="40sp"
-                        android:gravity="center"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="@dimen/spacing_medium" />
+                    <FrameLayout
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:background="@drawable/bg_emoji_circle"
+                        android:layout_marginEnd="14dp">
 
-                    <TextView
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="🎭"
+                            android:textSize="26sp" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Personality\nAssessment"
-                        android:textSize="@dimen/text_large"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Personality Assessment"
+                            android:textColor="@color/white"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Discover your personality type"
+                            android:textColor="#BBFFFFFF"
+                            android:textSize="12sp"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/tvPersonalityStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"
-                        android:textSize="@dimen/text_xlarge"
-                        android:textStyle="bold"
                         android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_status_badge"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp" />
 
                 </LinearLayout>
 
@@ -294,8 +428,11 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardEQTest"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginBottom="16dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                android:layout_marginBottom="12dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground">
@@ -303,39 +440,65 @@
                 <LinearLayout
                     android:id="@+id/layoutEQTest"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_skill_card_purple"
                     android:orientation="horizontal"
-                    android:background="@color/purple_card"
-                    android:padding="@dimen/spacing_medium">
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:minHeight="88dp">
 
-                    <TextView
-                        android:layout_width="@dimen/icon_xlarge"
-                        android:layout_height="@dimen/icon_xlarge"
-                        android:text="💛"
-                        android:textSize="40sp"
-                        android:gravity="center"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="@dimen/spacing_medium" />
+                    <FrameLayout
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:background="@drawable/bg_emoji_circle"
+                        android:layout_marginEnd="14dp">
 
-                    <TextView
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="💛"
+                            android:textSize="26sp" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="EQ Test"
-                        android:textSize="@dimen/text_large"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="EQ Test"
+                            android:textColor="@color/white"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Measure emotional intelligence"
+                            android:textColor="#BBFFFFFF"
+                            android:textSize="12sp"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/tvEQStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"
-                        android:textSize="@dimen/text_xlarge"
-                        android:textStyle="bold"
                         android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_status_badge"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp" />
 
                 </LinearLayout>
 
@@ -345,8 +508,11 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardMemoryTest"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginBottom="16dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                android:layout_marginBottom="12dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground">
@@ -354,39 +520,65 @@
                 <LinearLayout
                     android:id="@+id/layoutMemoryTest"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_skill_card_purple"
                     android:orientation="horizontal"
-                    android:background="@color/purple_card"
-                    android:padding="@dimen/spacing_medium">
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:minHeight="88dp">
 
-                    <TextView
-                        android:layout_width="@dimen/icon_xlarge"
-                        android:layout_height="@dimen/icon_xlarge"
-                        android:text="🧠"
-                        android:textSize="40sp"
-                        android:gravity="center"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="@dimen/spacing_medium" />
+                    <FrameLayout
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:background="@drawable/bg_emoji_circle"
+                        android:layout_marginEnd="14dp">
 
-                    <TextView
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="🧠"
+                            android:textSize="26sp" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Memory Test"
-                        android:textSize="@dimen/text_large"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Memory Test"
+                            android:textColor="@color/white"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Challenge your memory skills"
+                            android:textColor="#BBFFFFFF"
+                            android:textSize="12sp"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/tvMemoryStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"
-                        android:textSize="@dimen/text_xlarge"
-                        android:textStyle="bold"
                         android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_status_badge"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp" />
 
                 </LinearLayout>
 
@@ -396,8 +588,11 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardNumericalTest"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginBottom="16dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                android:layout_marginBottom="12dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground">
@@ -405,39 +600,65 @@
                 <LinearLayout
                     android:id="@+id/layoutNumericalTest"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_skill_card_purple"
                     android:orientation="horizontal"
-                    android:background="@color/purple_card"
-                    android:padding="@dimen/spacing_medium">
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:minHeight="88dp">
 
-                    <TextView
-                        android:layout_width="@dimen/icon_xlarge"
-                        android:layout_height="@dimen/icon_xlarge"
-                        android:text="🔢"
-                        android:textSize="40sp"
-                        android:gravity="center"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="@dimen/spacing_medium" />
+                    <FrameLayout
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:background="@drawable/bg_emoji_circle"
+                        android:layout_marginEnd="14dp">
 
-                    <TextView
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="🔢"
+                            android:textSize="26sp" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Numerical Ability"
-                        android:textSize="@dimen/text_large"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Numerical Ability"
+                            android:textColor="@color/white"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Evaluate mathematical aptitude"
+                            android:textColor="#BBFFFFFF"
+                            android:textSize="12sp"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/tvNumericalStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/15"
-                        android:textSize="@dimen/text_xlarge"
-                        android:textStyle="bold"
                         android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_status_badge"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp" />
 
                 </LinearLayout>
 
@@ -447,8 +668,11 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardSpaceRelationsTest"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginBottom="16dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                android:layout_marginBottom="12dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground">
@@ -456,39 +680,65 @@
                 <LinearLayout
                     android:id="@+id/layoutSpaceRelationsTest"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_skill_card_purple"
                     android:orientation="horizontal"
-                    android:background="@color/purple_card"
-                    android:padding="@dimen/spacing_medium">
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:minHeight="88dp">
 
-                    <TextView
-                        android:layout_width="@dimen/icon_xlarge"
-                        android:layout_height="@dimen/icon_xlarge"
-                        android:text="🧭"
-                        android:textSize="40sp"
-                        android:gravity="center"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="@dimen/spacing_medium" />
+                    <FrameLayout
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:background="@drawable/bg_emoji_circle"
+                        android:layout_marginEnd="14dp">
 
-                    <TextView
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="🧭"
+                            android:textSize="26sp" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Space Relations"
-                        android:textSize="@dimen/text_large"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Space Relations"
+                            android:textColor="@color/white"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Test spatial awareness"
+                            android:textColor="#BBFFFFFF"
+                            android:textSize="12sp"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/tvSpaceRelationsStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"
-                        android:textSize="@dimen/text_xlarge"
-                        android:textStyle="bold"
                         android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_status_badge"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp" />
 
                 </LinearLayout>
 
@@ -498,8 +748,11 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardMechanicalTest"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginBottom="16dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                android:layout_marginBottom="12dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground">
@@ -507,39 +760,65 @@
                 <LinearLayout
                     android:id="@+id/layoutMechanicalTest"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_skill_card_purple"
                     android:orientation="horizontal"
-                    android:background="@color/purple_card"
-                    android:padding="@dimen/spacing_medium">
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:minHeight="88dp">
 
-                    <TextView
-                        android:layout_width="@dimen/icon_xlarge"
-                        android:layout_height="@dimen/icon_xlarge"
-                        android:text="⚙️"
-                        android:textSize="40sp"
-                        android:gravity="center"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="@dimen/spacing_medium" />
+                    <FrameLayout
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:background="@drawable/bg_emoji_circle"
+                        android:layout_marginEnd="14dp">
 
-                    <TextView
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="⚙️"
+                            android:textSize="26sp" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Mechanical Reasoning"
-                        android:textSize="@dimen/text_large"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mechanical Reasoning"
+                            android:textColor="@color/white"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Assess mechanical reasoning"
+                            android:textColor="#BBFFFFFF"
+                            android:textSize="12sp"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/tvMechanicalStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"
-                        android:textSize="@dimen/text_xlarge"
-                        android:textStyle="bold"
                         android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_status_badge"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp" />
 
                 </LinearLayout>
 
@@ -549,8 +828,11 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardAbstractTest"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginBottom="80dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                android:layout_marginBottom="16dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground">
@@ -558,39 +840,65 @@
                 <LinearLayout
                     android:id="@+id/layoutAbstractTest"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_skill_card_purple"
                     android:orientation="horizontal"
-                    android:background="@color/purple_card"
-                    android:padding="@dimen/spacing_medium">
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:minHeight="88dp">
 
-                    <TextView
-                        android:layout_width="@dimen/icon_xlarge"
-                        android:layout_height="@dimen/icon_xlarge"
-                        android:text="🧩"
-                        android:textSize="40sp"
-                        android:gravity="center"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="@dimen/spacing_medium" />
+                    <FrameLayout
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:background="@drawable/bg_emoji_circle"
+                        android:layout_marginEnd="14dp">
 
-                    <TextView
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="🧩"
+                            android:textSize="26sp" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Abstract Reasoning"
-                        android:textSize="@dimen/text_large"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Abstract Reasoning"
+                            android:textColor="@color/white"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Analyze pattern recognition"
+                            android:textColor="#BBFFFFFF"
+                            android:textSize="12sp"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/tvAbstractStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0/10"
-                        android:textSize="@dimen/text_xlarge"
-                        android:textStyle="bold"
                         android:textColor="@color/white"
-                        android:layout_gravity="center_vertical" />
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_status_badge"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp" />
 
                 </LinearLayout>
 
@@ -599,6 +907,5 @@
         </LinearLayout>
 
     </ScrollView>
-
 
 </RelativeLayout>

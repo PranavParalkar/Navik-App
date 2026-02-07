@@ -8,8 +8,7 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img_login_background"
-    android:fitsSystemWindows="true">
+    android:background="@drawable/bg_gradient_blue">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -199,7 +198,7 @@
                                 <ImageView
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
-                                    android:src="@drawable/ic_mentor_community"
+                                    android:src="@drawable/ic_mentor_community_"
                                     android:contentDescription="Mentor"
                                     android:scaleType="fitCenter" />
 
@@ -267,7 +266,7 @@
                                 <ImageView
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
-                                    android:src="@drawable/ic_reports"
+                                    android:src="@drawable/ic_report"
                                     android:contentDescription="Report"
                                     android:scaleType="fitCenter" />
 
@@ -325,7 +324,7 @@
                                 <ImageView
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
-                                    android:src="@drawable/ic_roadmap"
+                                    android:src="@drawable/ic_roadmap_new"
                                     android:contentDescription="Roadmap"
                                     android:scaleType="fitCenter" />
 
@@ -349,7 +348,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Learn more about your interested areasðŸŒŸ"
+                        android:text="Learn more about your interested areas."
                         android:textSize="22sp"
                         android:textStyle="bold"
                         android:textColor="@color/text_primary"
@@ -608,13 +607,10 @@
 
 
 <!-- Navigation Drawer -->
-<com.google.android.material.navigation.NavigationView
-    android:id="@+id/navigationView"
-    android:layout_width="@dimen/drawer_width"
+<include
+    layout="@layout/layout_drawer"
+    android:layout_width="280dp"
     android:layout_height="match_parent"
-    android:layout_gravity="start"
-    android:background="@color/light_blue_bg"
-    app:headerLayout="@layout/nav_header"
-    app:menu="@menu/drawer_menu" />
+    android:layout_gravity="start" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

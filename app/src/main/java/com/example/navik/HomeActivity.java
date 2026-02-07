@@ -3,24 +3,20 @@ package com.example.navik;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
 
 public class HomeActivity extends AppCompatActivity {
     
     private DrawerLayout drawerLayout;
-    private NavigationView navigationView;
     private ImageView menuIcon;
     private TextView userName, drawerUserName, drawerUserEmail;
     private CardView cardJobListings, cardMentorCommunity, cardReport, cardRoadmap;
@@ -40,13 +36,11 @@ public class HomeActivity extends AppCompatActivity {
     
     private void initializeViews() {
         drawerLayout = findViewById(R.id.drawerLayout);
-        navigationView = findViewById(R.id.navigationView);
         menuIcon = findViewById(R.id.menuIcon);
         userName = findViewById(R.id.userName);
         
-        View headerView = navigationView.getHeaderView(0);
-        drawerUserName = headerView.findViewById(R.id.drawerUserName);
-        drawerUserEmail = headerView.findViewById(R.id.drawerUserEmail);
+        drawerUserName = findViewById(R.id.drawerUserName);
+        drawerUserEmail = findViewById(R.id.drawerUserEmail);
         
         cardJobListings = findViewById(R.id.cardJobListings);
         cardMentorCommunity = findViewById(R.id.cardMentorCommunity);
@@ -73,27 +67,45 @@ public class HomeActivity extends AppCompatActivity {
     private void setupDrawer() {
         menuIcon.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
         
-        navigationView.setNavigationItemSelectedListener(item -> {
-            int id = item.getItemId();
-            
-            if (id == R.id.nav_home) {
-                drawerLayout.closeDrawer(GravityCompat.START);
-            } else if (id == R.id.nav_job_listing) {
-                startActivity(new Intent(this, JobListingsActivity.class));
-            } else if (id == R.id.nav_scholarship) {
-                startActivity(new Intent(this, BooksActivity.class));
-            } else if (id == R.id.nav_discussion) {
-                startActivity(new Intent(this, ChatbotActivity.class));
-            } else if (id == R.id.nav_settings) {
-                startActivity(new Intent(this, ProfileActivity.class));
-            } else if (id == R.id.nav_help) {
-                startActivity(new Intent(this, ChatbotActivity.class));
-            } else if (id == R.id.nav_logout) {
-                showLogoutDialog();
-            }
-            
+        // Close button
+        View btnCloseDrawer = findViewById(R.id.btnCloseDrawer);
+        if (btnCloseDrawer != null) {
+            btnCloseDrawer.setOnClickListener(v -> drawerLayout.closeDrawer(GravityCompat.START));
+        }
+        
+        // Drawer menu items
+        findViewById(R.id.drawerHome).setOnClickListener(v -> {
             drawerLayout.closeDrawer(GravityCompat.START);
-            return true;
+        });
+        
+        findViewById(R.id.drawerJobListing).setOnClickListener(v -> {
+            drawerLayout.closeDrawer(GravityCompat.START);
+            startActivity(new Intent(this, JobListingsActivity.class));
+        });
+        
+        findViewById(R.id.drawerScholarship).setOnClickListener(v -> {
+            drawerLayout.closeDrawer(GravityCompat.START);
+            startActivity(new Intent(this, BooksActivity.class));
+        });
+        
+        findViewById(R.id.drawerDiscussion).setOnClickListener(v -> {
+            drawerLayout.closeDrawer(GravityCompat.START);
+            startActivity(new Intent(this, ChatbotActivity.class));
+        });
+        
+        findViewById(R.id.drawerSettings).setOnClickListener(v -> {
+            drawerLayout.closeDrawer(GravityCompat.START);
+            startActivity(new Intent(this, ProfileActivity.class));
+        });
+        
+        findViewById(R.id.drawerHelp).setOnClickListener(v -> {
+            drawerLayout.closeDrawer(GravityCompat.START);
+            startActivity(new Intent(this, ChatbotActivity.class));
+        });
+        
+        findViewById(R.id.drawerLogout).setOnClickListener(v -> {
+            drawerLayout.closeDrawer(GravityCompat.START);
+            showLogoutDialog();
         });
     }
     
