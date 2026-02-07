@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+﻿<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    tools:context=".HomeActivity">
+    android:background="@drawable/bg_gradient_blue">
 
     <!-- Main Content -->
     <RelativeLayout
@@ -15,15 +13,6 @@
         android:layout_height="match_parent"
         android:background="@color/background">
 
-        <!-- Scrollable Content -->
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/bottomNav"
-            android:fillViewport="true"
-            android:clipToPadding="false"
-            android:scrollbars="none"
-            android:overScrollMode="never">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -98,9 +87,9 @@
                         android:orientation="horizontal"
                         android:weightSum="2">
 
-                        <!-- Career Exploration Card -->
+                        <!-- Job Listings Card -->
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/cardCareerExploration"
+                            android:id="@+id/cardJobListings"
                             android:layout_width="0dp"
                             android:layout_height="90dp"
                             android:layout_weight="1"
@@ -128,7 +117,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Career"
+                                        android:text="Job"
                                         android:textSize="16sp"
                                         android:textStyle="bold"
                                         android:textColor="@android:color/white"
@@ -137,7 +126,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Exploration"
+                                        android:text="Listings"
                                         android:textSize="12sp"
                                         android:textColor="@android:color/white"
                                         android:alpha="0.85"
@@ -148,8 +137,8 @@
                                 <ImageView
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
-                                    android:src="@drawable/ic_career_exploration"
-                                    android:contentDescription="Career"
+                                    android:src="@drawable/ic_job_listing"
+                                    android:contentDescription="Jobs"
                                     android:scaleType="fitCenter" />
 
                             </LinearLayout>
@@ -206,7 +195,7 @@
                                 <ImageView
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
-                                    android:src="@drawable/ic_mentor_community"
+                                    android:src="@drawable/ic_mentor_community_"
                                     android:contentDescription="Mentor"
                                     android:scaleType="fitCenter" />
 
@@ -274,7 +263,7 @@
                                 <ImageView
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
-                                    android:src="@drawable/ic_reports"
+                                    android:src="@drawable/ic_report"
                                     android:contentDescription="Report"
                                     android:scaleType="fitCenter" />
 
@@ -332,7 +321,7 @@
                                 <ImageView
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
-                                    android:src="@drawable/ic_roadmap"
+                                    android:src="@drawable/ic_roadmap_new"
                                     android:contentDescription="Roadmap"
                                     android:scaleType="fitCenter" />
 
@@ -356,7 +345,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Learn more about your interested areas🌟"
+                        android:text="Learn more about your interested areas."
                         android:textSize="22sp"
                         android:textStyle="bold"
                         android:textColor="@color/text_primary"
@@ -409,7 +398,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="👁 14.3k"
+                                        android:text="ðŸ‘ 14.3k"
                                         android:textSize="13sp"
                                         android:textColor="@color/text_hint"
                                         android:fontFamily="sans-serif" />
@@ -468,7 +457,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="👁 9.7k"
+                                        android:text="ðŸ‘ 9.7k"
                                         android:textSize="13sp"
                                         android:textColor="@color/text_hint"
                                         android:fontFamily="sans-serif" />
@@ -487,152 +476,138 @@
 
         </ScrollView>
 
-        <!-- FAB Chat Button -->
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/chatButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="80dp"
-            android:src="@drawable/ic_chat"
-            android:contentDescription="Chat"
-            app:backgroundTint="@color/primary"
-            app:tint="@android:color/white"
-            app:fabSize="normal"
-            app:elevation="8dp" />
+    <!-- Floating Chat Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/chatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="@dimen/spacing_medium"
+        android:layout_marginBottom="80dp"
+        android:src="@drawable/ic_chat"
+        app:backgroundTint="@color/primary"
+        app:tint="@color/text_white"
+        app:elevation="12dp"
+        android:clickable="true"
+        android:focusable="true" />
 
-        <!-- Bottom Navigation Bar -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/bottomNav"
+
+
+    <!-- Bottom Navigation Bar -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="20dp"
+        app:cardBackgroundColor="@android:color/white">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="68dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="12dp"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="20dp"
-            app:cardBackgroundColor="@android:color/white">
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:weightSum="4"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/navHome"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:weightSum="4"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp">
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
 
-                <!-- Home -->
-                <LinearLayout
-                    android:id="@+id/navHome"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackgroundBorderless">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_home"
-                        android:contentDescription="Home"
-                        app:tint="@color/primary" />
-
-                </LinearLayout>
-
-                <!-- Tests -->
-                <LinearLayout
-                    android:id="@+id/navFiles"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackgroundBorderless">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_files"
-                        android:contentDescription="Tests"
-                        app:tint="@color/text_secondary" />
-
-                </LinearLayout>
-
-                <!-- Reference / Books -->
-                <LinearLayout
-                    android:id="@+id/navBooks"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackgroundBorderless">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_books"
-                        android:contentDescription="Reference"
-                        app:tint="@color/text_secondary" />
-
-                </LinearLayout>
-
-                <!-- Profile -->
-                <LinearLayout
-                    android:id="@+id/navProfile"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackgroundBorderless">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_profile"
-                        android:contentDescription="Profile"
-                        app:tint="@color/text_secondary" />
-
-                </LinearLayout>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_home"
+                    android:contentDescription="Home"
+                    app:tint="@color/primary" />
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:id="@+id/navFiles"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
 
-    </RelativeLayout>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_files"
+                    android:contentDescription="Tests"
+                    app:tint="@color/text_secondary" />
 
-    <!-- Navigation Drawer -->
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigationView"
-        android:layout_width="300dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        android:background="@color/white"
-        app:headerLayout="@layout/nav_header"
-        app:menu="@menu/drawer_menu"
-        app:itemTextColor="@color/text_primary"
-        app:itemIconTint="@color/primary"
-        app:itemTextAppearance="@style/NavikDrawerItem"
-        app:itemIconSize="24dp"
-        app:itemIconPadding="16dp"
-        app:itemHorizontalPadding="24dp"
-        app:itemVerticalPadding="4dp"
-        app:itemShapeFillColor="@android:color/transparent"
-        app:itemShapeAppearance="@style/ShapeSmall" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/navSkills"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_skills"
+                    android:contentDescription="Skills"
+                    app:tint="@color/text_secondary" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/navCareer"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_career"
+                    android:contentDescription="Career"
+                    app:tint="@color/text_secondary" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
+
+
+<!-- Navigation Drawer -->
+<include
+    layout="@layout/layout_drawer"
+    android:layout_width="280dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="start" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

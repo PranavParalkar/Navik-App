@@ -3,29 +3,25 @@ package com.example.navik;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
 
 public class HomeActivity extends AppCompatActivity {
     
     private DrawerLayout drawerLayout;
-    private NavigationView navigationView;
     private ImageView menuIcon;
     private TextView userName, drawerUserName, drawerUserEmail;
-    private CardView cardCareerExploration, cardMentorCommunity, cardReport, cardRoadmap;
+    private CardView cardJobListings, cardMentorCommunity, cardReport, cardRoadmap;
     private FloatingActionButton chatButton;
-    private LinearLayout navHome, navFiles, navBooks, navProfile;
+    private LinearLayout navHome, navFiles, navSkills, navCareer;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +36,13 @@ public class HomeActivity extends AppCompatActivity {
     
     private void initializeViews() {
         drawerLayout = findViewById(R.id.drawerLayout);
-        navigationView = findViewById(R.id.navigationView);
         menuIcon = findViewById(R.id.menuIcon);
         userName = findViewById(R.id.userName);
         
-        View headerView = navigationView.getHeaderView(0);
-        drawerUserName = headerView.findViewById(R.id.drawerUserName);
-        drawerUserEmail = headerView.findViewById(R.id.drawerUserEmail);
+        drawerUserName = findViewById(R.id.drawerUserName);
+        drawerUserEmail = findViewById(R.id.drawerUserEmail);
         
-        cardCareerExploration = findViewById(R.id.cardCareerExploration);
+        cardJobListings = findViewById(R.id.cardJobListings);
         cardMentorCommunity = findViewById(R.id.cardMentorCommunity);
         cardReport = findViewById(R.id.cardReport);
         cardRoadmap = findViewById(R.id.cardRoadmap);
@@ -57,8 +51,8 @@ public class HomeActivity extends AppCompatActivity {
         
         navHome = findViewById(R.id.navHome);
         navFiles = findViewById(R.id.navFiles);
-        navBooks = findViewById(R.id.navBooks);
-        navProfile = findViewById(R.id.navProfile);
+        navSkills = findViewById(R.id.navSkills);
+        navCareer = findViewById(R.id.navCareer);
     }
     
     private void loadUserData() {
@@ -73,27 +67,45 @@ public class HomeActivity extends AppCompatActivity {
     private void setupDrawer() {
         menuIcon.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
         
-        navigationView.setNavigationItemSelectedListener(item -> {
-            int id = item.getItemId();
-            
-            if (id == R.id.nav_home) {
-                drawerLayout.closeDrawer(GravityCompat.START);
-            } else if (id == R.id.nav_job_listing) {
-                startActivity(new Intent(this, CareerExplorationActivity.class));
-            } else if (id == R.id.nav_scholarship) {
-                startActivity(new Intent(this, BooksActivity.class));
-            } else if (id == R.id.nav_discussion) {
-                startActivity(new Intent(this, ChatbotActivity.class));
-            } else if (id == R.id.nav_settings) {
-                startActivity(new Intent(this, ProfileActivity.class));
-            } else if (id == R.id.nav_help) {
-                startActivity(new Intent(this, ChatbotActivity.class));
-            } else if (id == R.id.nav_logout) {
-                showLogoutDialog();
-            }
-            
+        // Close button
+        View btnCloseDrawer = findViewById(R.id.btnCloseDrawer);
+        if (btnCloseDrawer != null) {
+            btnCloseDrawer.setOnClickListener(v -> drawerLayout.closeDrawer(GravityCompat.START));
+        }
+        
+        // Drawer menu items
+        findViewById(R.id.drawerHome).setOnClickListener(v -> {
             drawerLayout.closeDrawer(GravityCompat.START);
-            return true;
+        });
+        
+        findViewById(R.id.drawerJobListing).setOnClickListener(v -> {
+            drawerLayout.closeDrawer(GravityCompat.START);
+            startActivity(new Intent(this, JobListingsActivity.class));
+        });
+        
+        findViewById(R.id.drawerScholarship).setOnClickListener(v -> {
+            drawerLayout.closeDrawer(GravityCompat.START);
+            startActivity(new Intent(this, BooksActivity.class));
+        });
+        
+        findViewById(R.id.drawerDiscussion).setOnClickListener(v -> {
+            drawerLayout.closeDrawer(GravityCompat.START);
+            startActivity(new Intent(this, ChatbotActivity.class));
+        });
+        
+        findViewById(R.id.drawerSettings).setOnClickListener(v -> {
+            drawerLayout.closeDrawer(GravityCompat.START);
+            startActivity(new Intent(this, ProfileActivity.class));
+        });
+        
+        findViewById(R.id.drawerHelp).setOnClickListener(v -> {
+            drawerLayout.closeDrawer(GravityCompat.START);
+            startActivity(new Intent(this, ChatbotActivity.class));
+        });
+        
+        findViewById(R.id.drawerLogout).setOnClickListener(v -> {
+            drawerLayout.closeDrawer(GravityCompat.START);
+            showLogoutDialog();
         });
     }
     
@@ -115,8 +127,8 @@ public class HomeActivity extends AppCompatActivity {
     }
     
     private void setupClickListeners() {
-        cardCareerExploration.setOnClickListener(v -> 
-            startActivity(new Intent(this, CareerExplorationActivity.class))
+        cardJobListings.setOnClickListener(v -> 
+            startActivity(new Intent(this, JobListingsActivity.class))
         );
         
         cardMentorCommunity.setOnClickListener(v -> 
@@ -149,12 +161,12 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(new Intent(this, TestsActivity.class))
         );
         
-        navBooks.setOnClickListener(v -> 
-            startActivity(new Intent(this, BooksActivity.class))
+        navSkills.setOnClickListener(v ->
+            startActivity(new Intent(this, SkillPlatformActivity.class))
         );
-        
-        navProfile.setOnClickListener(v -> 
-            drawerLayout.openDrawer(GravityCompat.START)
+
+        navCareer.setOnClickListener(v ->
+            startActivity(new Intent(this, CareerExplorationActivity.class))
         );
     }
     

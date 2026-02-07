@@ -59,6 +59,12 @@
             android:name=".BooksActivity"
             android:exported="false" />
         <activity
+            android:name=".SkillPlatformActivity"
+            android:exported="false" />
+        <activity
+            android:name=".JobListingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChatbotActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />

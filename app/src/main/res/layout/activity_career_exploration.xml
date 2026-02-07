@@ -6,33 +6,35 @@
     android:background="@color/background">
 
     <!-- Header -->
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:padding="16dp"
-        android:background="@android:color/white"
-        android:elevation="3dp">
+        android:layout_marginTop="32dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
 
         <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_centerVertical="true"
             android:src="@drawable/ic_back"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Back" />
+            android:contentDescription="Back"
+            android:padding="6dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="🎯 Career Exploration"
-            android:textSize="22sp"
+            android:layout_centerInParent="true"
+            android:text="Career Exploration"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/text_primary"
-            android:layout_marginStart="12dp" />
-    </LinearLayout>
+            android:textColor="@color/text_primary" />
+
+    </RelativeLayout>
 
     <!-- Search Bar -->
     <LinearLayout
@@ -139,7 +141,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/navBooks"
+                android:id="@+id/navSkills"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -152,14 +154,14 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/ic_books"
-                    android:contentDescription="Reference"
+                    android:src="@drawable/ic_skills"
+                    android:contentDescription="Skills"
                     app:tint="@color/text_secondary" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/navProfile"
+                android:id="@+id/navCareer"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -172,9 +174,9 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/ic_profile"
-                    android:contentDescription="Profile"
-                    app:tint="@color/text_secondary" />
+                    android:src="@drawable/ic_career"
+                    android:contentDescription="Career"
+                    app:tint="@color/primary" />
 
             </LinearLayout>
 

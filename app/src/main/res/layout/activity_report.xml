@@ -15,7 +15,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="40dp"
+            android:paddingBottom="16dp">
 
             <!-- Header -->
             <LinearLayout
@@ -301,7 +304,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- Bottom Navigation -->
+    <!-- Bottom Navigation Bar -->
     <androidx.cardview.widget.CardView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
@@ -339,7 +342,7 @@
                     android:layout_height="30dp"
                     android:src="@drawable/ic_home"
                     android:contentDescription="Home"
-                    app:tint="@color/text_secondary" />
+                    app:tint="@color/primary" />
 
             </LinearLayout>
 
@@ -364,7 +367,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/navBooks"
+                android:id="@+id/navSkills"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -377,14 +380,14 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/ic_books"
-                    android:contentDescription="Reference"
+                    android:src="@drawable/ic_skills"
+                    android:contentDescription="Skills"
                     app:tint="@color/text_secondary" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/navProfile"
+                android:id="@+id/navCareer"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -397,8 +400,8 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/ic_profile"
-                    android:contentDescription="Profile"
+                    android:src="@drawable/ic_career"
+                    android:contentDescription="Career"
                     app:tint="@color/text_secondary" />
 
             </LinearLayout>
