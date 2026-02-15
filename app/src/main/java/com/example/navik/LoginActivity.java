@@ -12,7 +12,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.core.splashscreen.SplashScreen;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -43,16 +42,9 @@ public class LoginActivity extends AppCompatActivity {
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        SplashScreen.installSplashScreen(this);
-        setTheme(R.style.Theme_Navik);
         super.onCreate(savedInstanceState);
         
         prefs = getSharedPreferences("NavikPrefs", MODE_PRIVATE);
-        
-        if (prefs.getBoolean("isLoggedIn", false)) {
-            navigateToHome();
-            return;
-        }
         
         setContentView(R.layout.activity_login);
         
@@ -148,6 +140,7 @@ public class LoginActivity extends AppCompatActivity {
             .apply();
         
         Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
+        savePendingMentorProfile();
         navigateToHome();
     }
     
@@ -172,6 +165,9 @@ public class LoginActivity extends AppCompatActivity {
             .apply();
         
         Toast.makeText(this, "Sign up successful!", Toast.LENGTH_SHORT).show();
+        
+        // Save any pending mentor profile from pre-login form
+        savePendingMentorProfile();
         navigateToHome();
     }
     
@@ -213,6 +209,7 @@ public class LoginActivity extends AppCompatActivity {
                                     .apply();
                             
                             Toast.makeText(this, "Welcome " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
+                            savePendingMentorProfile();
                             navigateToHome();
                         }
                     } else {
@@ -224,5 +221,54 @@ public class LoginActivity extends AppCompatActivity {
     private void navigateToHome() {
         startActivity(new Intent(this, HomeActivity.class));
         finish();
+    }
+    
+    /**
+     * If the user filled out a mentor profile before login (pre-login flow),
+     * save that pending data to the database now that they're authenticated.
+     */
+    private void savePendingMentorProfile() {
+        if (!prefs.getBoolean("pendingMentorProfile", false)) {
+            return;
+        }
+        
+        String name = prefs.getString("pendingMentor_name", "");
+        String email = prefs.getString("pendingMentor_email", "");
+        String phone = prefs.getString("pendingMentor_phone", "");
+        String expertise = prefs.getString("pendingMentor_expertise", "");
+        String experience = prefs.getString("pendingMentor_experience", "");
+        String company = prefs.getString("pendingMentor_company", "");
+        String bio = prefs.getString("pendingMentor_bio", "");
+        String website = prefs.getString("pendingMentor_website", "");
+        String linkedIn = prefs.getString("pendingMentor_linkedIn", "");
+        String availability = prefs.getString("pendingMentor_availability", "");
+        
+        String description = bio + " • " + experience + " years experience at " + company;
+        String availabilityText = "⭐ New Mentor • " + availability;
+        
+        Mentor mentor = new Mentor(
+            name, description, availabilityText,
+            R.drawable.ic_launcher_foreground,
+            website.isEmpty() ? linkedIn : website,
+            linkedIn
+        );
+        
+        DatabaseHelper db = new DatabaseHelper(this);
+        db.addMentor(mentor, email, phone);
+        
+        // Clear all pending mentor data
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.remove("pendingMentorProfile");
+        editor.remove("pendingMentor_name");
+        editor.remove("pendingMentor_email");
+        editor.remove("pendingMentor_phone");
+        editor.remove("pendingMentor_expertise");
+        editor.remove("pendingMentor_experience");
+        editor.remove("pendingMentor_company");
+        editor.remove("pendingMentor_bio");
+        editor.remove("pendingMentor_website");
+        editor.remove("pendingMentor_linkedIn");
+        editor.remove("pendingMentor_availability");
+        editor.apply();
     }
 }

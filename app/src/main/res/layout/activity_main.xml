@@ -1,179 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
-    tools:context=".MainActivity">
+    android:background="@color/background"
+    android:padding="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
+        <!-- Welcome Text -->
         <TextView
             android:id="@+id/welcomeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
             android:text="Welcome\nUser XYZ"
-            android:textSize="28sp"
-            android:textStyle="bold"
             android:textColor="@color/primary"
-            android:layout_marginBottom="24dp" />
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
+        <!-- Career Exploration Card -->
         <androidx.cardview.widget.CardView
             android:id="@+id/careerExplorationCard"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="110dp"
             android:layout_marginBottom="16dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp"
             android:clickable="true"
             android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center_vertical"
                 android:orientation="vertical"
-                android:padding="16dp"
-                android:gravity="center_vertical">
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Career Exploration"
+                    android:textColor="@color/text_primary"
                     android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Discover various career paths and opportunities"
-                    android:textSize="14sp"
-                    android:textColor="#666666" />
-
+                    android:layout_marginTop="6dp"
+                    android:text="Discover careers that match your interests"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp" />
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
 
+        <!-- Career Roadmap Card -->
         <androidx.cardview.widget.CardView
             android:id="@+id/roadmapCard"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="110dp"
             android:layout_marginBottom="16dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp"
             android:clickable="true"
             android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center_vertical"
                 android:orientation="vertical"
-                android:padding="16dp"
-                android:gravity="center_vertical">
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Career Roadmap"
+                    android:textColor="@color/text_primary"
                     android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="View your personalized career path"
-                    android:textSize="14sp"
-                    android:textColor="#666666" />
-
+                    android:layout_marginTop="6dp"
+                    android:text="Plan your path to success step by step"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp" />
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
 
+        <!-- Mentor Community Card -->
         <androidx.cardview.widget.CardView
             android:id="@+id/mentorCommunityCard"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="110dp"
             android:layout_marginBottom="16dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp"
             android:clickable="true"
             android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center_vertical"
                 android:orientation="vertical"
-                android:padding="16dp"
-                android:gravity="center_vertical">
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Mentor Community"
+                    android:textColor="@color/text_primary"
                     android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Connect with mentors and peers"
-                    android:textSize="14sp"
-                    android:textColor="#666666" />
-
+                    android:layout_marginTop="6dp"
+                    android:text="Connect with experienced professionals"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp" />
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
 
+        <!-- Reports & Analytics Card -->
         <androidx.cardview.widget.CardView
             android:id="@+id/reportsCard"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp"
+            android:layout_height="110dp"
+            android:layout_marginBottom="16dp"
             android:clickable="true"
             android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center_vertical"
                 android:orientation="vertical"
-                android:padding="16dp"
-                android:gravity="center_vertical">
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Reports &amp; Analytics"
+                    android:textColor="@color/text_primary"
                     android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="View your assessment results and progress"
-                    android:textSize="14sp"
-                    android:textColor="#666666" />
-
+                    android:layout_marginTop="6dp"
+                    android:text="View your performance insights and reports"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp" />
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
-
 </ScrollView>

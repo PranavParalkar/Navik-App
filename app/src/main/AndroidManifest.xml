@@ -17,14 +17,8 @@
         android:theme="@style/Theme.Navik">
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/Theme.Navik.Splash"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.Navik.Login"
+            android:exported="false" />
         <activity
             android:name=".HomeActivity"
             android:exported="false" />
@@ -84,8 +78,21 @@
             android:name=".BrowseMentorsActivity"
             android:exported="false" />
         <activity
+            android:name=".MentorDashboardActivity"
+            android:exported="false" />
+        <activity
             android:name=".CareerRoadmapDetailActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".RoleSelectionActivity"
+            android:theme="@style/Theme.Navik.Splash"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

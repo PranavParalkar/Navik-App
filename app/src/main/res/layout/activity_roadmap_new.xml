@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_blue_bg">
+    android:background="@color/background">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bottomNav"
-        android:fillViewport="true">
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,26 +26,24 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="@dimen/spacing_large">
+                android:layout_marginBottom="20dp">
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/btnBack"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:src="@drawable/ic_back"
-                    android:clickable="true"
-                    android:focusable="true" />
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Back" />
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="🗺️ Career Roadmap"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_primary"
                     android:layout_marginStart="12dp" />
-
             </LinearLayout>
 
             <!-- Intro Text -->
@@ -53,11 +51,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Select a career to view its detailed roadmap"
-                android:textSize="16sp"
+                android:textSize="15sp"
                 android:textColor="@color/text_secondary"
-                android:layout_marginBottom="@dimen/spacing_large" />
+                android:layout_marginBottom="20dp" />
 
-            <!-- Career Selection Grid -->
+            <!-- Section Title -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -65,9 +63,9 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/primary"
-                android:layout_marginBottom="@dimen/spacing_medium" />
+                android:layout_marginBottom="14dp" />
 
-            <!-- Career Cards RecyclerView -->
+            <!-- Career Roadmap RecyclerView -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/careerRoadmapRecyclerView"
                 android:layout_width="match_parent"
@@ -76,7 +74,6 @@
                 android:layout_marginBottom="80dp" />
 
         </LinearLayout>
-
     </ScrollView>
 
     <!-- Bottom Navigation Bar -->

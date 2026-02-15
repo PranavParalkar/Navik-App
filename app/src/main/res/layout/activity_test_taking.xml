@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/background"
+    android:orientation="vertical">
 
     <!-- ═══════════════ Premium Header ═══════════════ -->
     <LinearLayout
@@ -308,7 +308,6 @@
                     android:textSize="16sp" />
             </LinearLayout>
         </LinearLayout>
-
     </ScrollView>
 
     <!-- ═══════════════ Bottom Action Bar ═══════════════ -->

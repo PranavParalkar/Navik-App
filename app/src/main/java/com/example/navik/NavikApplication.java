@@ -18,7 +18,7 @@ public class NavikApplication extends Application {
         registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
             @Override
             public void onActivityResumed(Activity activity) {
-                if (activity instanceof LoginActivity) {
+                if (activity instanceof LoginActivity || activity instanceof RoleSelectionActivity || activity instanceof AddMentorProfileActivity) {
                     redirectingToLogin = false;
                     return;
                 }
@@ -29,7 +29,7 @@ public class NavikApplication extends Application {
                     }
                     redirectingToLogin = true;
 
-                    Intent intent = new Intent(activity, LoginActivity.class);
+                    Intent intent = new Intent(activity, RoleSelectionActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     activity.startActivity(intent);
                     activity.finish();

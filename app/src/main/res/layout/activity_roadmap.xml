@@ -16,260 +16,236 @@
         android:paddingTop="40dp"
         android:paddingBottom="16dp"
         android:gravity="center_vertical"
-        android:background="@color/white">
+        android:padding="16dp"
+        android:background="@android:color/white"
+        android:elevation="3dp">
 
-        <ImageView
+        <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:src="@drawable/ic_back"
-            android:clickable="true"
-            android:focusable="true" />
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Back" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="🗺️ RoadMap"
-            android:textSize="28sp"
+            android:textSize="26sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="@color/text_primary"
             android:gravity="center" />
 
         <View
-            android:layout_width="32dp"
-            android:layout_height="32dp" />
-
+            android:layout_width="48dp"
+            android:layout_height="48dp" />
     </LinearLayout>
 
-    <!-- Roadmap Content with Overlay -->
+    <!-- Roadmap Content -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/header"
         android:layout_above="@id/bottomNav">
 
-        <!-- Background Roadmap Image -->
         <ImageView
             android:id="@+id/roadmapBackground"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/img_roadmap_background"
             android:scaleType="fitXY"
-            android:contentDescription="Career Roadmap" />
+            android:src="@drawable/img_roadmap_background"
+            android:contentDescription="Roadmap Background" />
 
-        <!-- Overlay Labels and Pins -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <!-- Pin: Job Listing (top area) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-            <!-- Job listing - Top Right -->
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="40dp"
-                android:layout_marginTop="120dp">
+                android:text="📍"
+                android:textSize="32sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="📍"
-                    android:textSize="32sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Job listing"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:background="#D4E157"
-                    android:padding="8dp"
-                    android:layout_marginTop="4dp" />
-
-            </LinearLayout>
-
-            <!-- Higher education - Right Middle -->
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="240dp">
+                android:text="Job listing"
+                android:background="@drawable/bg_pin_label"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:layout_marginStart="4dp" />
+        </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="📍"
-                    android:textSize="32sp" />
+        <!-- Pin: Higher Education -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="24dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Higher education"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:background="#D4E157"
-                    android:padding="8dp"
-                    android:layout_marginTop="4dp" />
-
-            </LinearLayout>
-
-            <!-- Intermediate skills - Center Right -->
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="60dp"
-                android:layout_marginTop="360dp">
+                android:text="📍"
+                android:textSize="32sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="📍"
-                    android:textSize="32sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Intermediate skills"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:background="#D4E157"
-                    android:padding="8dp"
-                    android:layout_marginTop="4dp" />
-
-            </LinearLayout>
-
-            <!-- Certifications - Left Top -->
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="200dp">
+                android:text="Higher education"
+                android:background="@drawable/bg_pin_label"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:layout_marginStart="4dp" />
+        </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="📍"
-                    android:textSize="32sp" />
+        <!-- Pin: Intermediate Skills -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="180dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="certifications"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:background="#D4E157"
-                    android:padding="8dp"
-                    android:layout_marginTop="4dp" />
-
-            </LinearLayout>
-
-            <!-- Branch and College Recommendation - Left Middle -->
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="380dp">
+                android:text="📍"
+                android:textSize="32sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="📍"
-                    android:textSize="32sp" />
-
-                <TextView
-                    android:layout_width="140dp"
-                    android:layout_height="wrap_content"
-                    android:text="Branch and College Recommendation"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:background="#D4E157"
-                    android:padding="8dp"
-                    android:layout_marginTop="4dp"
-                    android:gravity="center" />
-
-            </LinearLayout>
-
-            <!-- Preparation - Right Bottom -->
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="520dp">
+                android:text="Intermediate skills"
+                android:background="@drawable/bg_pin_label"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:layout_marginStart="4dp" />
+        </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="📍"
-                    android:textSize="32sp" />
+        <!-- Pin: Certifications -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="260dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Preparation"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:background="#D4E157"
-                    android:padding="8dp"
-                    android:layout_marginTop="4dp" />
-
-            </LinearLayout>
-
-            <!-- Introduction to entrance Exams - Left Bottom -->
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="580dp">
+                android:text="📍"
+                android:textSize="32sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="📍"
-                    android:textSize="32sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Certifications"
+                android:background="@drawable/bg_pin_label"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:layout_marginStart="4dp" />
+        </LinearLayout>
 
-                <TextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:text="Introduction to entrance Exams"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:background="#D4E157"
-                    android:padding="8dp"
-                    android:layout_marginTop="4dp"
-                    android:gravity="center" />
+        <!-- Pin: Branch/College Recommendation -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="340dp"
+            android:layout_marginStart="16dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📍"
+                android:textSize="32sp" />
 
-        </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Branch/College\nRecommendation"
+                android:background="@drawable/bg_pin_label"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:layout_marginStart="4dp" />
+        </LinearLayout>
 
+        <!-- Pin: Preparation -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="430dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📍"
+                android:textSize="32sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Preparation"
+                android:background="@drawable/bg_pin_label"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:layout_marginStart="4dp" />
+        </LinearLayout>
+
+        <!-- Pin: Intro to Entrance Exams -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="24dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📍"
+                android:textSize="32sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Intro to entrance\nExams"
+                android:background="@drawable/bg_pin_label"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:layout_marginStart="4dp" />
+        </LinearLayout>
     </RelativeLayout>
 
     <!-- Bottom Navigation Bar -->
