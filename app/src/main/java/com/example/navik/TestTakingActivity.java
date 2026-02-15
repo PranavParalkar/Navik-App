@@ -3,11 +3,13 @@ package com.example.navik;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +18,9 @@ public class TestTakingActivity extends AppCompatActivity {
     private ImageView btnBack;
     private TextView testTitle, questionCounter, questionText;
     private TextView optionAText, optionBText, optionCText, optionDText;
-    private CardView optionA, optionB, optionC, optionD;
+    private TextView optionALabel, optionBLabel, optionCLabel, optionDLabel;
+    private LinearLayout optionA, optionB, optionC, optionD;
+    private View progressFill;
     private Button btnNext;
     
     private List<Question> questions;
@@ -45,6 +49,7 @@ public class TestTakingActivity extends AppCompatActivity {
         testTitle = findViewById(R.id.testTitle);
         questionCounter = findViewById(R.id.questionCounter);
         questionText = findViewById(R.id.questionText);
+        progressFill = findViewById(R.id.progressFill);
         
         optionA = findViewById(R.id.optionA);
         optionB = findViewById(R.id.optionB);
@@ -55,6 +60,11 @@ public class TestTakingActivity extends AppCompatActivity {
         optionBText = findViewById(R.id.optionBText);
         optionCText = findViewById(R.id.optionCText);
         optionDText = findViewById(R.id.optionDText);
+        
+        optionALabel = findViewById(R.id.optionALabel);
+        optionBLabel = findViewById(R.id.optionBLabel);
+        optionCLabel = findViewById(R.id.optionCLabel);
+        optionDLabel = findViewById(R.id.optionDLabel);
         
         btnNext = findViewById(R.id.btnNext);
         
@@ -766,28 +776,65 @@ public class TestTakingActivity extends AppCompatActivity {
             
             questionCounter.setText((currentQuestionIndex + 1) + "/" + totalQuestions);
             questionText.setText(q.getQuestion());
-            optionAText.setText("A. " + q.getOptionA());
-            optionBText.setText("B. " + q.getOptionB());
-            optionCText.setText("C. " + q.getOptionC());
-            optionDText.setText("D. " + q.getOptionD());
+            optionAText.setText(q.getOptionA());
+            optionBText.setText(q.getOptionB());
+            optionCText.setText(q.getOptionC());
+            optionDText.setText(q.getOptionD());
             
             resetOptions();
             selectedAnswer = -1;
+            updateProgressBar();
+        }
+    }
+    
+    private void updateProgressBar() {
+        if (progressFill != null && totalQuestions > 0) {
+            progressFill.post(() -> {
+                View parent = (View) progressFill.getParent();
+                int parentWidth = parent.getWidth();
+                float fraction = (float)(currentQuestionIndex + 1) / totalQuestions;
+                int targetWidth = (int)(parentWidth * fraction);
+                
+                ViewGroup.LayoutParams params = progressFill.getLayoutParams();
+                params.width = targetWidth;
+                progressFill.setLayoutParams(params);
+                
+                progressFill.animate()
+                    .scaleX(1f)
+                    .setDuration(350)
+                    .start();
+            });
         }
     }
     
     private void resetOptions() {
-        optionA.setCardBackgroundColor(Color.WHITE);
-        optionB.setCardBackgroundColor(Color.WHITE);
-        optionC.setCardBackgroundColor(Color.WHITE);
-        optionD.setCardBackgroundColor(Color.WHITE);
+        setOptionUnselected(optionA, optionALabel);
+        setOptionUnselected(optionB, optionBLabel);
+        setOptionUnselected(optionC, optionCLabel);
+        setOptionUnselected(optionD, optionDLabel);
+    }
+    
+    private void setOptionUnselected(LinearLayout option, TextView label) {
+        option.setBackgroundResource(R.drawable.bg_option_card);
+        if (label != null) {
+            label.setBackgroundResource(R.drawable.bg_option_label);
+            label.setTextColor(getResources().getColor(R.color.primary, getTheme()));
+        }
+    }
+    
+    private void setOptionSelected(LinearLayout option, TextView label) {
+        option.setBackgroundResource(R.drawable.bg_option_card_selected);
+        if (label != null) {
+            label.setBackgroundResource(R.drawable.bg_option_label_selected);
+            label.setTextColor(Color.WHITE);
+        }
     }
     
     private void setupClickListeners() {
-        optionA.setOnClickListener(v -> selectOption(0, optionA));
-        optionB.setOnClickListener(v -> selectOption(1, optionB));
-        optionC.setOnClickListener(v -> selectOption(2, optionC));
-        optionD.setOnClickListener(v -> selectOption(3, optionD));
+        optionA.setOnClickListener(v -> selectOption(0, optionA, optionALabel));
+        optionB.setOnClickListener(v -> selectOption(1, optionB, optionBLabel));
+        optionC.setOnClickListener(v -> selectOption(2, optionC, optionCLabel));
+        optionD.setOnClickListener(v -> selectOption(3, optionD, optionDLabel));
         
         btnNext.setOnClickListener(v -> {
             if (selectedAnswer == -1) {
@@ -809,10 +856,10 @@ public class TestTakingActivity extends AppCompatActivity {
         });
     }
     
-    private void selectOption(int option, CardView card) {
+    private void selectOption(int option, LinearLayout card, TextView label) {
         resetOptions();
         selectedAnswer = option;
-        card.setCardBackgroundColor(Color.parseColor("#6366F1"));
+        setOptionSelected(card, label);
     }
     
     private void showResults() {

@@ -264,7 +264,7 @@
                 android:textStyle="bold"
                 android:layout_marginBottom="14dp" />
 
-            <!-- IQ Test -->
+            <!-- ═══ Test 1: IQ Test ═══ -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardIQTest"
                 android:layout_width="match_parent"
@@ -344,7 +344,7 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- Personality Assessment -->
+            <!-- ═══ Test 2: Personality Assessment ═══ -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardPersonalityTest"
                 android:layout_width="match_parent"
@@ -424,7 +424,7 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- EQ Test -->
+            <!-- ═══ Test 3: EQ Test ═══ -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardEQTest"
                 android:layout_width="match_parent"
@@ -504,87 +504,7 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- Memory Test -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardMemoryTest"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="6dp"
-                app:cardBackgroundColor="@android:color/transparent"
-                android:layout_marginBottom="12dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground">
-
-                <LinearLayout
-                    android:id="@+id/layoutMemoryTest"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_skill_card_purple"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:gravity="center_vertical"
-                    android:minHeight="88dp">
-
-                    <FrameLayout
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
-                        android:background="@drawable/bg_emoji_circle"
-                        android:layout_marginEnd="14dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="🧠"
-                            android:textSize="26sp" />
-
-                    </FrameLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Memory Test"
-                            android:textColor="@color/white"
-                            android:textSize="17sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Challenge your memory skills"
-                            android:textColor="#BBFFFFFF"
-                            android:textSize="12sp"
-                            android:layout_marginTop="2dp" />
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/tvMemoryStatus"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0/10"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:background="@drawable/bg_status_badge"
-                        android:paddingStart="14dp"
-                        android:paddingEnd="14dp"
-                        android:paddingTop="6dp"
-                        android:paddingBottom="6dp" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!-- Numerical Ability -->
+            <!-- ═══ Test 4: Numerical Ability ═══ -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardNumericalTest"
                 android:layout_width="match_parent"
@@ -664,7 +584,7 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- Space Relations -->
+            <!-- ═══ Test 5: Space Relations ═══ -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardSpaceRelationsTest"
                 android:layout_width="match_parent"
@@ -744,7 +664,7 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- Mechanical Reasoning -->
+            <!-- ═══ Test 6: Mechanical Reasoning ═══ -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardMechanicalTest"
                 android:layout_width="match_parent"
@@ -824,7 +744,7 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- Abstract Reasoning -->
+            <!-- ═══ Test 7: Abstract Reasoning ═══ -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardAbstractTest"
                 android:layout_width="match_parent"
@@ -832,7 +752,7 @@
                 app:cardCornerRadius="16dp"
                 app:cardElevation="6dp"
                 app:cardBackgroundColor="@android:color/transparent"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="12dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground">
@@ -902,6 +822,86 @@
 
                 </LinearLayout>
 
+            </androidx.cardview.widget.CardView>
+
+            <!-- ═══ Test 8: Memory Test (LAST) ═══ -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardMemoryTest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:id="@+id/layoutMemoryTest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_skill_card_purple"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:minHeight="88dp">
+
+                    <FrameLayout
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:background="@drawable/bg_emoji_circle"
+                        android:layout_marginEnd="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="🧠"
+                            android:textSize="26sp" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Memory Test"
+                            android:textColor="@color/white"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Challenge your memory skills"
+                            android:textColor="#BBFFFFFF"
+                            android:textSize="12sp"
+                            android:layout_marginTop="2dp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvMemoryStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0/10"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_status_badge"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp" />
+
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>

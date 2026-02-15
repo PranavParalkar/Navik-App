@@ -53,4 +53,8 @@
     <color name="shadow_light">#1A000000</color>
     <color name="shadow_medium">#33000000</color>
     <color name="divider">#E5E7EB</color>
+
+    <!-- Card Colors -->
+    <color name="card_purple_soft">#EDE9FE</color>
+    <color name="card_green_soft">#D1FAE5</color>
 </resources>

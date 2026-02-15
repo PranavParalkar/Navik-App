@@ -56,6 +56,9 @@
             android:name=".MemoryTestActivity"
             android:exported="false" />
         <activity
+            android:name=".TestLandingActivity"
+            android:exported="false" />
+        <activity
             android:name=".BooksActivity"
             android:exported="false" />
         <activity

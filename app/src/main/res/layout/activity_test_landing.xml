@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_landing_purple">
+
+    <!-- Header -->
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_back"
+            android:contentDescription="Back"
+            android:padding="6dp" />
+
+        <TextView
+            android:id="@+id/tvHeaderTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="IQ"
+            android:textColor="@color/text_primary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <!-- Get Started Button pinned at the bottom -->
+    <Button
+        android:id="@+id/btnGetStarted"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="32dp"
+        android:text="Get Started"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:background="@drawable/bg_button_get_started"
+        android:textAllCaps="false" />
+
+    <!-- Scrollable Content between header and button -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        android:layout_above="@id/btnGetStarted"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="28dp"
+            android:paddingEnd="28dp"
+            android:paddingBottom="20dp"
+            android:gravity="center_horizontal">
+
+            <!-- Brain Icon -->
+            <TextView
+                android:id="@+id/ivTestIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🧠"
+                android:textSize="100sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="28dp" />
+
+            <!-- Main Description -->
+            <TextView
+                android:id="@+id/tvTestDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Intellectual Quotient is a measure of cognitive abilities and displays various traits like"
+                android:textColor="#1B5E7B"
+                android:textSize="22sp"
+                android:textStyle="bold|italic"
+                android:lineSpacingExtra="4dp"
+                android:gravity="center"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Bullet Points -->
+            <LinearLayout
+                android:id="@+id/bulletPointsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="8dp"
+                android:layout_marginBottom="32dp">
+
+                <TextView
+                    android:id="@+id/tvBullet1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="●  Adaptability"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvBullet2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="●  Memory"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvBullet3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="●  Pattern Recognition"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tvBullet4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="●  Abstract Thinking."
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- Section Covers Header -->
+            <TextView
+                android:id="@+id/tvSectionCoversTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="This section covers:"
+                android:textColor="@color/text_primary"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Section Covers Body -->
+            <TextView
+                android:id="@+id/tvSectionCoversBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Intellectual Quotient has a total of 10 questions based on a person's intellect.\nEach question has 1 point which will be awarded to you when you choose the correct answer"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

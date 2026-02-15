@@ -13,25 +13,26 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
 public class TestsActivity extends AppCompatActivity {
-    
+
     private ImageView btnBack;
-    private CardView cardIQTest, cardPersonalityTest, cardEQTest, cardMemoryTest, cardNumericalTest, cardSpaceRelationsTest, cardMechanicalTest, cardAbstractTest;
+    private CardView cardIQTest, cardPersonalityTest, cardEQTest, cardMemoryTest, cardNumericalTest,
+            cardSpaceRelationsTest, cardMechanicalTest, cardAbstractTest;
     private LinearLayout navHome, navFiles, navSkills, navCareer;
 
-    private View layoutIQTest, layoutPersonalityTest, layoutEQTest, layoutMemoryTest, layoutNumericalTest, layoutSpaceRelationsTest, layoutMechanicalTest, layoutAbstractTest;
-    private TextView tvIQStatus, tvPersonalityStatus, tvEQStatus, tvMemoryStatus, tvNumericalStatus, tvSpaceRelationsStatus, tvMechanicalStatus, tvAbstractStatus;
+    private View layoutIQTest, layoutPersonalityTest, layoutEQTest, layoutMemoryTest, layoutNumericalTest,
+            layoutSpaceRelationsTest, layoutMechanicalTest, layoutAbstractTest;
+    private TextView tvIQStatus, tvPersonalityStatus, tvEQStatus, tvMemoryStatus, tvNumericalStatus,
+            tvSpaceRelationsStatus, tvMechanicalStatus, tvAbstractStatus;
     private TextView tvProgressSummary, tvProgressPercent;
     private View progressBarFill;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tests);
-        
-        initializeViews();
-        setupClickListeners();
-        setupNavigation();
 
+        initializeViews();
+        setupNavigation();
         updateCompletionUi();
     }
 
@@ -40,7 +41,7 @@ public class TestsActivity extends AppCompatActivity {
         super.onResume();
         updateCompletionUi();
     }
-    
+
     private void initializeViews() {
         btnBack = findViewById(R.id.btnBack);
         cardIQTest = findViewById(R.id.cardIQTest);
@@ -69,7 +70,7 @@ public class TestsActivity extends AppCompatActivity {
         tvSpaceRelationsStatus = findViewById(R.id.tvSpaceRelationsStatus);
         tvMechanicalStatus = findViewById(R.id.tvMechanicalStatus);
         tvAbstractStatus = findViewById(R.id.tvAbstractStatus);
-        
+
         navHome = findViewById(R.id.navHome);
         navFiles = findViewById(R.id.navFiles);
         navSkills = findViewById(R.id.navSkills);
@@ -78,20 +79,25 @@ public class TestsActivity extends AppCompatActivity {
         tvProgressSummary = findViewById(R.id.tvProgressSummary);
         tvProgressPercent = findViewById(R.id.tvProgressPercent);
         progressBarFill = findViewById(R.id.progressBarFill);
-        
+
         btnBack.setOnClickListener(v -> finish());
     }
 
     private void updateCompletionUi() {
         int completed = 0;
-        completed += updateSingleTestUi(TestProgressManager.TEST_IQ, layoutIQTest, tvIQStatus, "0/10", R.drawable.bg_skill_card_purple);
-        completed += updateSingleTestUi(TestProgressManager.TEST_PERSONALITY, layoutPersonalityTest, tvPersonalityStatus, "0/10", R.drawable.bg_skill_card_purple);
-        completed += updateSingleTestUi(TestProgressManager.TEST_EQ, layoutEQTest, tvEQStatus, "0/10", R.drawable.bg_skill_card_purple);
-        completed += updateSingleTestUi(TestProgressManager.TEST_MEMORY, layoutMemoryTest, tvMemoryStatus, "0/10", R.drawable.bg_skill_card_purple);
-        completed += updateSingleTestUi(TestProgressManager.TEST_NUMERICAL, layoutNumericalTest, tvNumericalStatus, "0/15", R.drawable.bg_skill_card_purple);
-        completed += updateSingleTestUi(TestProgressManager.TEST_SPACE_RELATIONS, layoutSpaceRelationsTest, tvSpaceRelationsStatus, "0/10", R.drawable.bg_skill_card_purple);
-        completed += updateSingleTestUi(TestProgressManager.TEST_MECHANICAL, layoutMechanicalTest, tvMechanicalStatus, "0/10", R.drawable.bg_skill_card_purple);
-        completed += updateSingleTestUi(TestProgressManager.TEST_ABSTRACT, layoutAbstractTest, tvAbstractStatus, "0/10", R.drawable.bg_skill_card_purple);
+        completed += updateSingleTestUi(TestProgressManager.TEST_IQ, layoutIQTest, tvIQStatus, "0/10");
+        completed += updateSingleTestUi(TestProgressManager.TEST_PERSONALITY, layoutPersonalityTest,
+                tvPersonalityStatus, "0/10");
+        completed += updateSingleTestUi(TestProgressManager.TEST_EQ, layoutEQTest, tvEQStatus, "0/10");
+        completed += updateSingleTestUi(TestProgressManager.TEST_NUMERICAL, layoutNumericalTest, tvNumericalStatus,
+                "0/15");
+        completed += updateSingleTestUi(TestProgressManager.TEST_SPACE_RELATIONS, layoutSpaceRelationsTest,
+                tvSpaceRelationsStatus, "0/10");
+        completed += updateSingleTestUi(TestProgressManager.TEST_MECHANICAL, layoutMechanicalTest, tvMechanicalStatus,
+                "0/10");
+        completed += updateSingleTestUi(TestProgressManager.TEST_ABSTRACT, layoutAbstractTest, tvAbstractStatus,
+                "0/10");
+        completed += updateSingleTestUi(TestProgressManager.TEST_MEMORY, layoutMemoryTest, tvMemoryStatus, "0/10");
 
         // Update progress summary
         if (tvProgressSummary != null) {
@@ -112,52 +118,113 @@ public class TestsActivity extends AppCompatActivity {
                 progressBarFill.setLayoutParams(params);
             });
         }
+
+        // Setup click listeners with lock awareness
+        setupClickListeners();
     }
 
-    private int updateSingleTestUi(String testName, View backgroundContainer, TextView statusView, String defaultText, int gradientResId) {
+    /**
+     * Updates a single test card UI to show completed, unlocked, or locked state.
+     * Returns 1 if completed, 0 otherwise.
+     */
+    private int updateSingleTestUi(String testName, View backgroundContainer, TextView statusView, String defaultText) {
         if (backgroundContainer == null || statusView == null) {
             return 0;
         }
 
         boolean isCompleted = TestProgressManager.isCompleted(this, testName);
+        boolean isUnlocked = TestProgressManager.isTestUnlocked(this, testName);
 
         if (isCompleted) {
+            // Completed state — green gradient
             backgroundContainer.setBackgroundResource(R.drawable.bg_test_completed);
             statusView.setText("✓ Done");
             statusView.setTextColor(ContextCompat.getColor(this, R.color.white));
+            backgroundContainer.setAlpha(1f);
             return 1;
-        } else {
-            backgroundContainer.setBackgroundResource(gradientResId);
+        } else if (isUnlocked) {
+            // Unlocked & available — normal purple gradient
+            backgroundContainer.setBackgroundResource(R.drawable.bg_skill_card_purple);
             statusView.setText(defaultText);
             statusView.setTextColor(ContextCompat.getColor(this, R.color.white));
+            backgroundContainer.setAlpha(1f);
+            return 0;
+        } else {
+            // Locked — dark greyed out
+            backgroundContainer.setBackgroundResource(R.drawable.bg_test_locked);
+            statusView.setText("🔒");
+            statusView.setTextColor(ContextCompat.getColor(this, R.color.white));
+            backgroundContainer.setAlpha(0.7f);
             return 0;
         }
     }
-    
+
     private void setupClickListeners() {
-        cardIQTest.setOnClickListener(v -> startTest("IQ Test", 10));
-        cardPersonalityTest.setOnClickListener(v -> startTest("Personality Assessment", 10));
-        if (cardEQTest != null) {
-            cardEQTest.setOnClickListener(v -> startTest("EQ Test", 10));
-        }
-        if (cardMemoryTest != null) {
-            cardMemoryTest.setOnClickListener(v -> startActivity(new Intent(this, MemoryTestActivity.class)));
-        }
-        cardNumericalTest.setOnClickListener(v -> startTest("Numerical Ability", 15));
-        if (cardSpaceRelationsTest != null) {
-            cardSpaceRelationsTest.setOnClickListener(v -> startTest("Space Relations", 10));
-        }
-        cardMechanicalTest.setOnClickListener(v -> startTest("Mechanical Reasoning", 10));
-        cardAbstractTest.setOnClickListener(v -> startTest("Abstract Reasoning", 10));
+        setupTestCardClick(cardIQTest, TestProgressManager.TEST_IQ, 10);
+        setupTestCardClick(cardPersonalityTest, TestProgressManager.TEST_PERSONALITY, 10);
+        setupTestCardClick(cardEQTest, TestProgressManager.TEST_EQ, 10);
+        setupTestCardClick(cardNumericalTest, TestProgressManager.TEST_NUMERICAL, 15);
+        setupTestCardClick(cardSpaceRelationsTest, TestProgressManager.TEST_SPACE_RELATIONS, 10);
+        setupTestCardClick(cardMechanicalTest, TestProgressManager.TEST_MECHANICAL, 10);
+        setupTestCardClick(cardAbstractTest, TestProgressManager.TEST_ABSTRACT, 10);
+        setupTestCardClick(cardMemoryTest, TestProgressManager.TEST_MEMORY, 10);
     }
-    
+
+    /**
+     * Sets up a click listener for a test card that respects the lock state.
+     * If locked — shows a Toast. If unlocked — launches the landing page.
+     */
+    private void setupTestCardClick(CardView card, String testName, int totalQuestions) {
+        if (card == null) return;
+
+        card.setOnClickListener(v -> {
+            if (!TestProgressManager.isTestUnlocked(this, testName)) {
+                String previousTest = getPreviousIncompleteTest(testName);
+                if (previousTest != null) {
+                    Toast.makeText(this, "Complete \"" + previousTest + "\" first to unlock this test.",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "Complete the previous test to unlock this one.", Toast.LENGTH_SHORT).show();
+                }
+                return;
+            }
+
+            if (TestProgressManager.isCompleted(this, testName)) {
+                Toast.makeText(this, "You've already completed this test!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            startTest(testName, totalQuestions);
+        });
+    }
+
+    /**
+     * Returns the name of the first incomplete test that comes before the given
+     * test
+     * in the TEST_ORDER sequence. Used for the "Complete X first" message.
+     */
+    private String getPreviousIncompleteTest(String testName) {
+        for (int i = 0; i < TestProgressManager.TEST_ORDER.length; i++) {
+            if (TestProgressManager.TEST_ORDER[i].equalsIgnoreCase(testName)) {
+                // Walk backwards to find the first incomplete predecessor
+                for (int j = i - 1; j >= 0; j--) {
+                    if (!TestProgressManager.isCompleted(this, TestProgressManager.TEST_ORDER[j])) {
+                        return TestProgressManager.TEST_ORDER[j];
+                    }
+                }
+                break;
+            }
+        }
+        return null;
+    }
+
     private void startTest(String testName, int totalQuestions) {
-        Intent intent = new Intent(this, TestTakingActivity.class);
+        Intent intent = new Intent(this, TestLandingActivity.class);
         intent.putExtra("testName", testName);
         intent.putExtra("totalQuestions", totalQuestions);
         startActivity(intent);
     }
-    
+
     private void setupNavigation() {
         if (navHome != null) {
             navHome.setOnClickListener(v -> {
@@ -165,23 +232,19 @@ public class TestsActivity extends AppCompatActivity {
                 finish();
             });
         }
-        
+
         if (navFiles != null) {
             navFiles.setOnClickListener(v -> {
                 // Already on tests page
             });
         }
-        
+
         if (navSkills != null) {
-            navSkills.setOnClickListener(v -> 
-                startActivity(new Intent(this, SkillPlatformActivity.class))
-            );
+            navSkills.setOnClickListener(v -> startActivity(new Intent(this, SkillPlatformActivity.class)));
         }
-        
+
         if (navCareer != null) {
-            navCareer.setOnClickListener(v -> 
-                startActivity(new Intent(this, CareerExplorationActivity.class))
-            );
+            navCareer.setOnClickListener(v -> startActivity(new Intent(this, CareerExplorationActivity.class)));
         }
     }
 }
