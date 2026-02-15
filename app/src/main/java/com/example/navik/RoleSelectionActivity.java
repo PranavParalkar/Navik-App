@@ -38,11 +38,33 @@ public class RoleSelectionActivity extends AppCompatActivity {
         // If prefs say logged in but Firebase disagrees, clear stale session data
         if (prefLoggedIn && !firebaseLoggedIn) {
             prefs.edit()
-                .putBoolean("isLoggedIn", false)
-                .remove("userEmail")
-                .remove("userName")
-                .remove("userRole")
-                .apply();
+                    .putBoolean("isLoggedIn", false)
+                    .remove("userEmail")
+                    .remove("userName")
+                    .apply();
+        }
+
+        // If a role was already selected previously, skip role selection
+        if (UserRoleManager.hasRole(this)) {
+            String savedRole = UserRoleManager.getRole(this);
+            if (UserRoleManager.ROLE_MENTOR.equals(savedRole)) {
+                // Only redirect to mentor form if they already filled it but haven't logged in
+                // yet
+                boolean hasPendingProfile = prefs.getBoolean("pendingMentorProfile", false);
+                if (hasPendingProfile) {
+                    // Profile filled, take them to login
+                    startActivity(new Intent(this, LoginActivity.class));
+                } else {
+                    // Profile not filled yet, show the form
+                    Intent intent = new Intent(this, AddMentorProfileActivity.class);
+                    intent.putExtra("preLogin", true);
+                    startActivity(intent);
+                }
+            } else {
+                startActivity(new Intent(this, LoginActivity.class));
+            }
+            finish();
+            return;
         }
 
         setContentView(R.layout.activity_role_selection);
@@ -57,13 +79,13 @@ public class RoleSelectionActivity extends AppCompatActivity {
             finish();
         });
 
-        // "Join as Mentor" → save role, go to Mentor Profile form first (before login)
+        // "Join as Mentor" → go to Mentor Profile form first (role saved only on form
+        // submit)
         cardStartAsMentor.setOnClickListener(v -> {
-            UserRoleManager.setRole(this, UserRoleManager.ROLE_MENTOR);
             Intent intent = new Intent(this, AddMentorProfileActivity.class);
             intent.putExtra("preLogin", true);
             startActivity(intent);
-            finish();
+            // Don't finish — user can press back to return here
         });
     }
 }

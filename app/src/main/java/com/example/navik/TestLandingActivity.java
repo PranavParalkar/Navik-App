@@ -150,6 +150,30 @@ public class TestLandingActivity extends AppCompatActivity {
                     tvSectionCoversBody.setText("Mechanical Reasoning has a total of 20 questions based on a person's physical properties and situation based interpretation\nEach question has 1 point which will be awarded to you when you choose the correct answer");
                 break;
 
+            case TestProgressManager.TEST_ABSTRACT:
+                if (tvTestIcon != null) tvTestIcon.setText("🔷");
+                if (tvTestDescription != null)
+                    tvTestDescription.setText("Abstract reasoning is a key cognitive skill that reveals traits such as");
+                if (tvBullet1 != null) tvBullet1.setText("●  Problem-solving ability.");
+                if (tvBullet2 != null) tvBullet2.setText("●  Logical thinking.");
+                if (tvBullet3 != null) tvBullet3.setText("●  Pattern recognition.");
+                if (tvBullet4 != null) tvBullet4.setText("●  Connecting Ideas.");
+                if (tvSectionCoversBody != null)
+                    tvSectionCoversBody.setText("Abstract Reasoning is designed to assess a person's ability to recognize patterns, think logically, and draw connections between abstract concepts.\nEach question has 1 point which will be awarded to you when you choose the correct answer");
+                break;
+
+            case TestProgressManager.TEST_MEMORY:
+                if (tvTestIcon != null) tvTestIcon.setText("🧩");
+                if (tvTestDescription != null)
+                    tvTestDescription.setText("Memory and concentration are essential cognitive skills that highlight traits such as");
+                if (tvBullet1 != null) tvBullet1.setText("●  Focus");
+                if (tvBullet2 != null) tvBullet2.setText("●  Attention to detail");
+                if (tvBullet3 != null) tvBullet3.setText("●  Information retention");
+                if (tvBullet4 != null) tvBullet4.setText("●  Ability to recall");
+                if (tvSectionCoversBody != null)
+                    tvSectionCoversBody.setText("Memory and concentration assessments involve 1 question aimed at evaluating a person's ability to retain information and recall details accurately.\nYou will  be given 10 random Alphabets with a number associated with it.\nAfter displaying all the variables , a timer will start for 30 secs\nWhile answering the question , the alphabet which is touched on the screen will be the first in the precedence");
+                break;
+
             // Future tests will be added here as the user provides designs
             default:
                 if (tvTestIcon != null)

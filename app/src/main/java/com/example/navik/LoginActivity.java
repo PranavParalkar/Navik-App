@@ -24,9 +24,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 public class LoginActivity extends AppCompatActivity {
-    
+
     private static final int RC_SIGN_IN = 9001;
-    
+
     private TextView tabLogin, tabSignUp, forgotPassword;
     private LinearLayout loginForm, signUpForm;
     private EditText loginEmail, loginPassword;
@@ -35,155 +35,191 @@ public class LoginActivity extends AppCompatActivity {
     private LinearLayout btnPhone, btnGoogle, btnFacebook;
     private SharedPreferences prefs;
     private boolean isLoginTab = true;
-    
+
     // Firebase
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
         prefs = getSharedPreferences("NavikPrefs", MODE_PRIVATE);
-        
+
         setContentView(R.layout.activity_login);
-        
+
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
-        
+
         // Configure Google Sign-In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        
+
         initializeViews();
         setupTabSwitching();
         setupClickListeners();
     }
-    
+
     private void initializeViews() {
         tabLogin = findViewById(R.id.tabLogin);
         tabSignUp = findViewById(R.id.tabSignUp);
         loginForm = findViewById(R.id.loginForm);
         signUpForm = findViewById(R.id.signUpForm);
-        
+
         loginEmail = findViewById(R.id.loginEmail);
         loginPassword = findViewById(R.id.loginPassword);
         forgotPassword = findViewById(R.id.forgotPassword);
         btnLogin = findViewById(R.id.btnLogin);
-        
+
         signUpEmail = findViewById(R.id.signUpEmail);
         signUpPassword = findViewById(R.id.signUpPassword);
         signUpConfirmPassword = findViewById(R.id.signUpConfirmPassword);
         btnSignUp = findViewById(R.id.btnSignUp);
-        
+
         btnPhone = findViewById(R.id.btnPhone);
         btnGoogle = findViewById(R.id.btnGoogle);
         btnFacebook = findViewById(R.id.btnFacebook);
     }
-    
+
     private void setupTabSwitching() {
         tabLogin.setOnClickListener(v -> switchToLogin());
         tabSignUp.setOnClickListener(v -> switchToSignUp());
     }
-    
+
     private void switchToLogin() {
         if (!isLoginTab) {
             isLoginTab = true;
-            tabLogin.setBackgroundResource(R.drawable.bg_tab_selected);
+            tabLogin.setBackgroundResource(R.drawable.bg_tab_selected_blue);
             tabLogin.setTextColor(ContextCompat.getColor(this, R.color.white));
             tabSignUp.setBackgroundResource(android.R.color.transparent);
             tabSignUp.setTextColor(ContextCompat.getColor(this, R.color.blue_primary));
-            
+
             loginForm.setVisibility(View.VISIBLE);
             signUpForm.setVisibility(View.GONE);
         }
     }
-    
+
     private void switchToSignUp() {
         if (isLoginTab) {
             isLoginTab = false;
-            tabSignUp.setBackgroundResource(R.drawable.bg_tab_selected);
+            tabSignUp.setBackgroundResource(R.drawable.bg_tab_selected_blue);
             tabSignUp.setTextColor(ContextCompat.getColor(this, R.color.white));
             tabLogin.setBackgroundResource(android.R.color.transparent);
             tabLogin.setTextColor(ContextCompat.getColor(this, R.color.blue_primary));
-            
+
             loginForm.setVisibility(View.GONE);
             signUpForm.setVisibility(View.VISIBLE);
         }
     }
-    
+
     private void setupClickListeners() {
         btnLogin.setOnClickListener(v -> handleLogin());
         btnSignUp.setOnClickListener(v -> handleSignUp());
         forgotPassword.setOnClickListener(v -> handleForgotPassword());
-        
+
         btnPhone.setOnClickListener(v -> Toast.makeText(this, "Phone login coming soon", Toast.LENGTH_SHORT).show());
         btnGoogle.setOnClickListener(v -> handleGoogleSignIn());
-        btnFacebook.setOnClickListener(v -> Toast.makeText(this, "Facebook login coming soon", Toast.LENGTH_SHORT).show());
+        btnFacebook
+                .setOnClickListener(v -> Toast.makeText(this, "Facebook login coming soon", Toast.LENGTH_SHORT).show());
     }
-    
+
     private void handleLogin() {
         String email = loginEmail.getText().toString().trim();
         String password = loginPassword.getText().toString().trim();
-        
+
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             return;
         }
-        
-        prefs.edit()
-            .putBoolean("isLoggedIn", true)
-            .putString("userEmail", email)
-            .apply();
-        
-        Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
-        savePendingMentorProfile();
-        navigateToHome();
+
+        btnLogin.setEnabled(false);
+        btnLogin.setText("Logging in...");
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        prefs.edit()
+                                .putBoolean("isLoggedIn", true)
+                                .putString("userEmail", email)
+                                .putString("userName", user != null ? user.getDisplayName() : "")
+                                .apply();
+
+                        Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
+                        savePendingMentorProfile();
+                        navigateToHome();
+                    } else {
+                        btnLogin.setEnabled(true);
+                        btnLogin.setText("Login");
+                        String errorMsg = task.getException() != null ? task.getException().getMessage()
+                                : "Login failed";
+                        Toast.makeText(this, errorMsg, Toast.LENGTH_LONG).show();
+                    }
+                });
     }
-    
+
     private void handleSignUp() {
         String email = signUpEmail.getText().toString().trim();
         String password = signUpPassword.getText().toString().trim();
         String confirmPassword = signUpConfirmPassword.getText().toString().trim();
-        
+
         if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             return;
         }
-        
+
         if (!password.equals(confirmPassword)) {
             Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
             return;
         }
-        
-        prefs.edit()
-            .putBoolean("isLoggedIn", true)
-            .putString("userEmail", email)
-            .apply();
-        
-        Toast.makeText(this, "Sign up successful!", Toast.LENGTH_SHORT).show();
-        
-        // Save any pending mentor profile from pre-login form
-        savePendingMentorProfile();
-        navigateToHome();
+
+        if (password.length() < 6) {
+            Toast.makeText(this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        btnSignUp.setEnabled(false);
+        btnSignUp.setText("Creating account...");
+
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        prefs.edit()
+                                .putBoolean("isLoggedIn", true)
+                                .putString("userEmail", email)
+                                .putString("userName", user != null ? user.getDisplayName() : "")
+                                .apply();
+
+                        Toast.makeText(this, "Sign up successful!", Toast.LENGTH_SHORT).show();
+                        savePendingMentorProfile();
+                        navigateToHome();
+                    } else {
+                        btnSignUp.setEnabled(true);
+                        btnSignUp.setText("Sign Up");
+                        String errorMsg = task.getException() != null ? task.getException().getMessage()
+                                : "Sign up failed";
+                        Toast.makeText(this, errorMsg, Toast.LENGTH_LONG).show();
+                    }
+                });
     }
-    
+
     private void handleForgotPassword() {
         Toast.makeText(this, "Password reset coming soon", Toast.LENGTH_SHORT).show();
     }
-    
+
     private void handleGoogleSignIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
-    
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        
+
         if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
@@ -194,7 +230,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
-    
+
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         mAuth.signInWithCredential(credential)
@@ -207,7 +243,7 @@ public class LoginActivity extends AppCompatActivity {
                                     .putString("userEmail", user.getEmail())
                                     .putString("userName", user.getDisplayName())
                                     .apply();
-                            
+
                             Toast.makeText(this, "Welcome " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
                             savePendingMentorProfile();
                             navigateToHome();
@@ -217,12 +253,12 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
-    
+
     private void navigateToHome() {
         startActivity(new Intent(this, HomeActivity.class));
         finish();
     }
-    
+
     /**
      * If the user filled out a mentor profile before login (pre-login flow),
      * save that pending data to the database now that they're authenticated.
@@ -231,7 +267,7 @@ public class LoginActivity extends AppCompatActivity {
         if (!prefs.getBoolean("pendingMentorProfile", false)) {
             return;
         }
-        
+
         String name = prefs.getString("pendingMentor_name", "");
         String email = prefs.getString("pendingMentor_email", "");
         String phone = prefs.getString("pendingMentor_phone", "");
@@ -242,20 +278,19 @@ public class LoginActivity extends AppCompatActivity {
         String website = prefs.getString("pendingMentor_website", "");
         String linkedIn = prefs.getString("pendingMentor_linkedIn", "");
         String availability = prefs.getString("pendingMentor_availability", "");
-        
+
         String description = bio + " • " + experience + " years experience at " + company;
         String availabilityText = "⭐ New Mentor • " + availability;
-        
+
         Mentor mentor = new Mentor(
-            name, description, availabilityText,
-            R.drawable.ic_launcher_foreground,
-            website.isEmpty() ? linkedIn : website,
-            linkedIn
-        );
-        
+                name, description, availabilityText,
+                R.drawable.ic_launcher_foreground,
+                website.isEmpty() ? linkedIn : website,
+                linkedIn);
+
         DatabaseHelper db = new DatabaseHelper(this);
         db.addMentor(mentor, email, phone);
-        
+
         // Clear all pending mentor data
         SharedPreferences.Editor editor = prefs.edit();
         editor.remove("pendingMentorProfile");
