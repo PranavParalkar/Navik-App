@@ -1,62 +1,63 @@
-# Navik - Career Guidance App
+# 🎯 Navik — AI-Powered Career Guidance App
 
-An Android application designed to help users explore career paths, get personalized recommendations, and connect with mentors.
+Navik is a comprehensive Android application that empowers students and early-career professionals to make informed career decisions. It combines AI-driven insights, structured career roadmaps, psychometric assessments, and a mentor network into a single, easy-to-use platform.
 
-## Features
+## ✨ Features
 
-- **Career Exploration**: Browse and search through various career options with detailed information including:
-  - Job descriptions
-  - Required degrees and qualifications
-  - Salary ranges
-  - Market trends
+### 🔐 Authentication
+- Email/password login with Firebase Authentication
+- Google Sign-In support
+- Role selection (Student / Mentor) with persistent session management
 
-- **Career Roadmap**: View personalized career paths based on assessment results
+### 🏠 Dashboard
+- Clean, card-based home screen for quick access to all features
+- Personalized welcome with user profile
 
-- **Database Integration**: SQLite database for storing:
-  - Assessment results (IQ, EQ, personality, interests)
-  - Career recommendations
+### 🔍 Career Exploration
+- Browse and search through curated career options
+- Detailed career cards showing job descriptions, required qualifications, salary ranges, and market trends
 
-- **Dashboard**: Clean, card-based interface for easy navigation
+### 🗺️ Career Roadmaps
+- Step-by-step career pathways for 5+ professions (Software Engineer, Data Scientist, Marketing Manager, UX/UI Designer, Product Manager)
+- Timeline visualization with expandable steps covering education, entrance exams, specializations, and duration
+- Visual progress indicators
 
-## Tech Stack
+### 📝 Psychometric Assessments
+- IQ, EQ, personality, and interest-based tests
+- Memory tests and custom test-taking flow
+- Test progress tracking and result analysis
 
-- **Language**: Java
-- **UI Components**: 
-  - RecyclerView for career listings
-  - CardView for dashboard items
-  - SearchView for career filtering
-- **Database**: SQLite with DatabaseHelper
-- **Min SDK**: 24 (Android 7.0)
-- **Target SDK**: 36
+### 🤖 AI Career Chatbot
+- Powered by **Google Gemini AI**
+- Real-time conversational career counseling
+- Personalized advice and Q&A
 
-## Project Structure
+### 👨‍🏫 Mentor Community
+- Browse and connect with mentors
+- Mentor registration and dashboard
+- Dual role support (Student ↔ Mentor)
 
-```
-app/src/main/java/com/example/navik/
-├── MainActivity.java                    # Dashboard with navigation cards
-├── CareerExplorationActivity.java       # Career browsing with search
-├── RoadmapActivity.java                 # Career roadmap display
-├── CareerAdapter.java                   # RecyclerView adapter
-├── Career.java                          # Career model class
-└── DatabaseHelper.java                  # SQLite database helper
+### 📚 Resources
+- Curated book recommendations
+- Skill-building platform links
+- Job listings
 
-app/src/main/res/layout/
-├── activity_main.xml                    # Dashboard layout
-├── activity_career_exploration.xml      # Career list layout
-├── activity_roadmap.xml                 # Roadmap layout
-└── item_career.xml                      # Career card item
-```
+### 📊 Reports & Analytics
+- Assessment result summaries
+- Career recommendation tracking via SQLite
 
-## Setup
+## 🛠️ Tech Stack
 
-1. Clone the repository
-2. Open in Android Studio
-3. Sync Gradle files
-4. Run on emulator or device
+| Layer | Technology |
+|-------|-----------|
+| Language | Java |
+| Min SDK | 24 (Android 7.0) |
+| Target SDK | 36 |
+| UI | Material Design, RecyclerView, CardView, ConstraintLayout |
+| Auth | Firebase Authentication, Google Sign-In |
+| AI | Google Gemini Generative AI |
+| Networking | OkHttp, Gson |
+| Database | SQLite (DatabaseHelper) |
+| Build | Gradle (Kotlin DSL) |
 
-## Future Enhancements
-
-- Mentor Community feature
-- Reports & Analytics dashboard
-- Assessment module integration
-- AI-powered career recommendations
+## 📁 Project Structure
